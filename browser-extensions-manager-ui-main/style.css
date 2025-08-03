@@ -368,14 +368,15 @@ footer {
     background: var(--bg-gradient);
     color: var(--text);
     }
-
+    header, .navbar , #content , footer{
+        width: 90vw;
+    }
     .navbar{
         flex-direction: column;
     }
     #content {
         min-height: 60vh;
         text-align: center;
-        width: 80vw;
         display: grid;
         align-items: center;
         justify-content: center;
@@ -386,10 +387,12 @@ footer {
     }
 }
 @media (min-width: 600px) and (max-width: 950px) {
+    header, .navbar , #content , footer{
+        width: 90vw;
+    }
     #content {
         min-height: 60vh;
         text-align: center;
-        width: 80vw;
         display: grid;
         align-items: center;
         justify-content: center;
