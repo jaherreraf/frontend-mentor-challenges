@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Primary*/
+    --red-500: hsl(1, 90%, 64%);
+    --blue-950: hsl(219, 85%, 26%);
+    /* Neutral*/
+    --white: hsl(0, 100%, 100%);
+    --navy-50: hsl(210, 60%, 98%);
+    --blue-100: hsl(211, 68%, 94%);
+    --navy-100: hsl(205, 33%, 90%);
+    --gray-500: hsl(219, 14%, 63%);
+    --gray-600: hsl(219, 12%, 42%);
+    --navy-950: hsl(224, 21%, 14%);
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-auto-flow: row;
+    place-content: center;
+    gap: 0.5em;
+    font-size: 16px;
+    font-family: "Kumbh Sans", "Ubuntu", sans-serif;
+    background: var(--navy-100);
+}
+
+#notification {
+    width: 650px;
+    min-height: 600px;
+    background: var(--white);
+    border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    padding: 1em;
+    display: grid;
+    grid-auto-flow: row;
+    align-items: start;
+    justify-content: center;
+    gap: 0.5em;
+    animation: fadeIn 1s ease;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .wrapper-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+header .wrapper-title h1 {
+    font-size: 1.5em;
+}
+
+header .wrapper-title span {
+    background: var(--blue-950);
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    padding: 0.3em 0.7em;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: grab;
+}
+
+header>span {
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+header>span:hover {
+    color: var(--blue-950);
+}
+
+.notifn {
+    padding: 0.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+}
+
+.notifn img {
+    width: 50px;
+    height: 50px;
+
+}
+
+.notifn .message {
+    display: grid;
+    grid-auto-flow: row;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+}
+
+.notifn .message p {
+    width: 100%;
+    height: 100%;
+    color: var(--gray-600);
+    display: block;
+}
+
+.notifn .message p .username {
+    font-weight: 700;
+    color: var(--navy-950);
+    cursor: pointer;
+    transition: all 0.5 ease;
+}
+
+.notifn .message p .username:hover {
+    color: var(--blue-950);
+}
+
+.notifn .message .time {
+    color: var(--gray-500);
+}
+
+.new-notification {
+    background: var(--navy-50);
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+}
+
+.point {
+    background: var(--red-500);
+    padding: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 3px;
+    animation: pulse 0.5s infinite ease;
+}
+
+@keyframes pulse {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+
+    50% {
+        scale: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.text-gray-600 {
+    font-weight: 600;
+    color: var(--gray-600);
+    transition: hover 0.5s ease;
+    cursor: pointer;
+}
+
+.text-blue-950 {
+    color: var(--blue-950);
+    font-weight: 600;
+    transition: hover 0.5s ease;
+    cursor: pointer;
+}
+
+.text-gray-600:hover,
+.text-blue-950 {
+    color: var(--blue-950);
+}
+
+.private-message {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.notification-private {
+    background: transparent;
+    width: 100%;
+}
+
+.message-private {
+    color: var(--gray-600);
+    border: 1px solid var(--navy-100);
+    padding: 1em;
+    width: 80%;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.message-private:hover {
+    background: var(--blue-100);
+
+}
+
+.comment-picture {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.comment-picture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.comment-picture img:hover {
+    outline: 2px solid var(--navy-100);
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    color: var(--navy-950);
+}
+
+.attribution {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a {
+    text-decoration: none;
+    background: linear-gradient(to right,
+            var(--navy-950), var(--gray-600));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width:600px) {
+    #notification {
+        width: 100vw;
+        min-height: 100dvh;
+        height: 100vh;
+        padding: 3em;
+    }
+
+    .notifn {
+        padding: 1em;
+        min-height: 120px;
+    }
+}
