@@ -633,7 +633,7 @@ footer .attribution a {
     #sidebar .wrapper-sidebar {
         width: 83%;
         margin-top: 2rem;
-        margin-left: 4rem;
+        margin: 2rem;
         min-height: 200px;
         display: flex;
         flex-direction: column;
@@ -792,6 +792,7 @@ footer .attribution a {
         grid-template-columns: 1fr;
         align-items: start;
         justify-content: center;
+        gap: 1em;
         background: url('/images/bg-pattern-circles.svg'), linear-gradient(to right, var(--purple-950), var(--purple-900));
         background-position: 60% 120%, 0% 0%;
         background-repeat: no-repeat, no-repeat;
@@ -836,11 +837,11 @@ footer .attribution a {
     }
 
     .infrastructure .wrapper-info h3 {
-        width: 60%;
+        width: 80%;
     }
 
     .infrastructure .wrapper-info p {
-        width: 60%;
+        width: 80%;
         text-align: center;
     }
 
