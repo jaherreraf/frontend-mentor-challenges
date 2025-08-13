@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*theme 1*/
+    /* Backgrounds */
+    --theme1-main-background: hsl(222, 26%, 31%);
+    --theme1-toggle-keypad-background: hsl(223, 31%, 20%);
+    --theme1-screen-background: hsl(224, 36%, 15%);
+
+    /* Keys */
+    --theme1-key-background-1: hsl(225, 21%, 49%);
+    --theme1-key-shadow-1: hsl(224, 28%, 35%);
+
+    --theme1-key-background-2: hsl(6, 63%, 50%);
+    --theme1-key-shadow-2: hsl(6, 70%, 34%);
+
+    --theme1-key-background-3: hsl(0, 0%, 90%);
+    --theme1-key-shadow-3: hsl(28, 16%, 65%);
+
+    /* Text */
+    --theme1-text-color-1: hsl(221, 14%, 31%);
+    --theme1-text-color-white: hsl(0, 100%, 100%);
+
+
+    /*Theme 2 */
+    /* Backgrounds */
+    --theme2-main-background: hsl(0, 0%, 90%);
+    --theme2-toggle-keypad-background: hsl(0, 5%, 81%);
+    --theme2-screen-background: hsl(0, 0%, 93%);
+
+    /* Keys */
+    --theme2-key-background-1: hsl(185, 42%, 37%);
+    --theme2-key-shadow-1: hsl(185, 58%, 25%);
+
+    --theme2-key-background-2: hsl(25, 98%, 40%);
+    --theme2-key-shadow-2: hsl(25, 99%, 27%);
+
+    --theme2-key-background-3: hsl(0, 0%, 90%);
+    --theme2-key-shadow-3: hsl(35, 11%, 61%);
+
+    /* Text */
+    --theme2-text-color-1: hsl(60, 10%, 19%);
+    --theme2-text-color-white: hsl(0, 100%, 100%);
+    /*Theme 3*/
+    /* Backgrounds */
+    --theme3-main-background: hsl(268, 75%, 9%);
+    --theme3-toggle-keypad-screen-background: hsl(268, 71%, 12%);
+
+    /* Keys */
+    --theme3-key-background-1: hsl(281, 89%, 26%);
+    --theme3-key-shadow-1: hsl(285, 91%, 52%);
+
+    --theme3-key-background-2: hsl(176, 100%, 44%);
+    --theme3-key-shadow-2: hsl(177, 92%, 70%);
+
+    --theme3-key-background-3: hsl(268, 47%, 21%);
+    --theme3-key-shadow-3: hsl(290, 70%, 36%);
+
+    /* Text */
+    --theme3-text-color-1: hsl(52, 100%, 62%);
+    --theme3-text-color-2: hsl(198, 20%, 13%);
+    --theme3-text-color-white: hsl(0, 100%, 100%);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    transition: all 0.5s ease-in-out;
+}
+body.theme-1{
+    background-color: var(--theme1-main-background);
+    h1, .theme-switcher__label , .wrapper-title{
+        color: var(--theme1-text-color-white);
+    }
+    .theme-switcher__toggle-container {
+        background: var(--theme1-toggle-keypad-background);
+    }
+    .theme-switcher__ball{
+        background: var(--theme1-key-background-2);
+    }
+    .display{
+        background: var(--theme1-screen-background);
+        color: var(--theme1-text-color-white);
+    }
+    .keyboard{
+        background: var(--theme1-toggle-keypad-background);
+    }
+    .key{
+        background: var(--theme1-key-background-3);
+        color: var( --theme1-text-color-1);
+        box-shadow: 0px 4px 1px 0px var(--theme1-key-shadow-3);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme1-key-shadow-3);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme1-key-shadow-3);
+    }
+    .key:focus{
+      box-shadow: none;
+    }
+    .key--equals{
+        background: var( --theme1-key-background-2);
+        color: var(--theme1-text-color-white);
+        box-shadow: 0px 4px 1px 0px var(--theme1-key-shadow-2);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme1-key-shadow-2);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme1-key-shadow-2);
+    }
+    .key--secondary , .key--reset{
+        background: var(--theme1-key-background-1);
+        color: var(--theme1-text-color-white);      
+        box-shadow: 0px 4px 1px 0px var(--theme1-key-shadow-1);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme1-key-shadow-1);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme1-key-shadow-1);
+    }
+    footer{
+        color: var(--theme1-text-color-white);
+    }
+    footer a{
+        color: var( --theme1-key-background-2);
+    }
+}
+body.theme-2{
+    background-color: var(--theme2-main-background);
+    h1, .theme-switcher__label , .wrapper-title{
+        color: var(--theme3-text-color-2);
+    }
+    .theme-switcher__toggle-container {
+        background: var(--theme2-toggle-keypad-background);
+    }
+    .theme-switcher__ball{
+        background: var(--theme2-key-background-2);
+    }
+    .display{
+        background: var(--theme2-screen-background);
+        color: var(--theme2-text-color-2);
+    }
+    .keyboard{
+        background: var(--theme2-toggle-keypad-background);
+    }
+    .key{
+        background: var(--theme2-key-background-3);
+        color: var( --theme2-text-color-1);
+        box-shadow: 0px 4px 1px 0px var(--theme2-key-shadow-3);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme2-key-shadow-3);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme2-key-shadow-3);
+    }
+    .key:focus{
+      box-shadow: none;
+    }
+    .key--equals{
+        background: var( --theme2-key-background-2);
+        color: var(--theme2-text-color-white);
+        box-shadow: 0px 4px 1px 0px var(--theme2-key-shadow-2);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme2-key-shadow-2);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme2-key-shadow-2);
+    }
+    .key--secondary , .key--reset{
+        background: var(--theme2-key-background-1);
+        color: var(--theme2-text-color-white);      
+        box-shadow: 0px 4px 1px 0px var(--theme2-key-shadow-1);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme2-key-shadow-1);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme2-key-shadow-1);
+    }
+    footer{
+        color: var(--theme3-text-color-2);
+    }
+    footer a{
+        color: var( --theme2-key-background-2);
+    }
+}
+body.theme-3 {
+    background-color: var(--theme3-main-background);
+    h1, .theme-switcher__label , .wrapper-title{
+        color: var(--theme3-text-color-1);
+    }
+    .theme-switcher__toggle-container {
+        background: var(--theme3-toggle-keypad-screen-background);
+    }
+    .theme-switcher__ball{
+        background: var(--theme3-key-background-2);
+    }
+    .display{
+        background: var(--theme3-toggle-keypad-screen-background);
+        color: var(--theme3-text-color-1);
+    }
+    .keyboard{
+        background: var(--theme3-toggle-keypad-screen-background);
+    }
+    .key{
+        background: var(--theme3-key-background-3);
+        color: var( --theme3-text-color-1);
+        box-shadow: 0px 4px 1px 0px var(--theme3-key-shadow-3);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme3-key-shadow-3);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme3-key-shadow-3);
+    }
+    .key:focus{
+      box-shadow: none;
+    }
+    .key--equals{
+        background: var( --theme3-key-background-2);
+        color: var(--theme3-text-color-2);
+        box-shadow: 0px 4px 1px 0px var(--theme3-key-shadow-2);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme3-key-shadow-2);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme3-key-shadow-2);
+    }
+    .key--secondary , .key--reset{
+        background: var(--theme3-key-background-1);
+        color: var(--theme3-text-color-white);      
+        box-shadow: 0px 4px 1px 0px var(--theme3-key-shadow-1);
+        -webkit-box-shadow: 0px 4px 1px 0px  var(--theme3-key-shadow-1);
+        -moz-box-shadow: 0px 4px 1px 0px var( --theme3-key-shadow-1);
+    }
+    footer{
+        color: var(--theme3-text-color-1);
+    }
+    footer a{
+        color: var( --theme3-key-background-2);
+    }
+}
+main {
+    width: 35vw;
+    height: 65dvh;
+    background: transparent;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    font-family: "Ubuntu", "Bebas Neue","Overpass" ,"League Spartan",sans-serif;
+    animation: fadeIn 1s ease-in-out;
+}
+
+main nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+.theme-switcher__label{
+    font-size: 1rem;
+}
+
+main .display {
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+}
+#result{
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+main .keyboard {
+    width: 100%;
+    height: 100%;
+    background-color: var(--theme1-key-background-1);
+    border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-auto-flow: row;
+    gap: 1em;
+}
+.key{
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    height: 50px;
+    width: 100%;
+    font-weight: 900;
+    font-size: 2rem;
+    transition: all 0.5s ease-in;
+}
+.key--reset {
+  grid-column: 1 / 3;
+}
+
+.key--equals {
+  grid-column: 3 / 5;
+}
+/* Estilos generales del contenedor */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Espacio entre el texto y el toggle */
+    font-family: sans-serif;
+    /* Para que se parezca más a la imagen */
+    font-weight: 700;
+    color: hsl(60, 10%, 19%);
+    /* Color de texto del tema 2 */
+}
+
+/* Contenedor del toggle */
+.theme-switcher__toggle-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 100px;
+    /* Ancho del contenedor del toggle */
+    height: 30px;
+    /* Altura del contenedor del toggle */
+    border-radius: 15px;
+    /* Bordes redondeados */
+    /* Fondo del toggle (tema 2) */
+
+}
+.wrapper-title{
+    position: absolute;
+    left: 0;
+    top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding:0rem 1rem;
+
+}
+.wrapper-switch{
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding:0rem 1rem;
+
+}
+.wrapper-switch >#theme-1,#theme-2,#theme-3{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Estilos de la "bola" o selector */
+.theme-switcher__ball {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: all 1s ease-in-out;
+}
+button{cursor: pointer;}
+footer{
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    animation: fadeIn 1s ease-in-out;
+}
+footer a{
+    text-decoration: none;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@media screen and (max-width: 600px ) {
+    main{
+        margin-top: 1rem;
+        width: 100vw;
+        height: 100dvh;
+    }
+    .key{
+        width: 100%;
+        height: 100%;
+        padding: 1em;
+        font-size: 16px;
+    }
+}
