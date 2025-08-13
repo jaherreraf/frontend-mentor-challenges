@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <form>
+      <div class="wrapper-star">
+        <img src="/images/icon-star.svg">
+      </div>
+      <span>How did we do?</span>
+      <p>
+        Please let us know how we did with your support request. All feedback is appreciated
+        to help us improve our offering!
+      </p>
+      <!-- Rating state start -->
+      <div class="rating">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+      </div>
+      <!-- Rating state end -->
+      <button type="submit">Submit</button>
+    </form>
+    <div class="thank-state">
+      <!-- Thank you state start -->
+
+      <img src="/images/illustration-thank-you.svg">
+      <span class="wrapper-rating">You selected <span id="rating">0</span> out of 5</span>
+      <h1>Thank you!</h1>
+      <p>
+        We appreciate you taking the time to give a rating. If you ever need more support,
+        don’t hesitate to get in touch!
+      </p>
+
+      <!-- Thank you state end -->
+    </div>
+  </main>
+
+
+
+
+
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/jaherreraf" target="_blank">Jaherreraf</a>.
+  </footer>
+  <script>
+    const ratingSpans = document.querySelectorAll('.rating span');
+    let selectedLevel = 0;
+    ratingSpans.forEach(span => {
+      span.classList.add('inactive');
+      span.addEventListener('click', () => {
+        ratingSpans.forEach(s => s.classList.remove('active'));
+        span.classList.add('active');
+        selectedLevel = span.textContent;
+      });
+    });
+
+    document.querySelector('button[type="submit"]').addEventListener('click', (event) => {
+      event.preventDefault();
+
+      if (selectedLevel === 0)
+        return;
+      document.querySelector("#rating").textContent = selectedLevel;
+      document.querySelector('form').style.display = 'none';
+      document.querySelector('.thank-state').style.display = 'flex';
+    });
+  </script>
+</body>
+
+</html>
