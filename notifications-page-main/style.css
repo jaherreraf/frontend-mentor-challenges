@@ -279,7 +279,7 @@ a {
     #notification {
         width: 100vw;
         min-height: 100dvh;
-        height: 100vh;
+        height: auto;
         padding: 3em;
     }
 
