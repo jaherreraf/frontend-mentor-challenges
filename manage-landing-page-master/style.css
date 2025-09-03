@@ -29,13 +29,10 @@ dd {
 body {
     font-size: 16px;
     font-family: "Ubuntu", "Bebas Neue", "Overpass", "League Spartan", "Be Vietnam Pro", sans-serif;
-}
-
-#app {
-    background-image: url('/images/bg-simplify-section-desktop.svg');
+    background-image: url('/images/bg-simplify-section-desktop-orange.svg');
     background-repeat: no-repeat;
-    background-position:65% 0%;
-    background-size:175%;
+    background-position:60% 0%;
+    background-size:125%;
     width: 100vw;
     min-height: 100dvh;
     filter: var(--orange-50) !important; 
@@ -43,8 +40,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    overflow-x: hidden;
 }
-
 header {
     width: 80vw;
     display: flex;
@@ -427,9 +424,20 @@ button {
 
 @media screen and (max-width:600px) {
     body {
+        font-family: "Ubuntu", "Bebas Neue", "Overpass", "League Spartan", "Be Vietnam Pro", sans-serif;
+        background-image: url('images/bg-simplify-section-first-mobile-orange.svg'), url('images/bg-simplify-section-first-mobile-orange.svg');
+        background-repeat: no-repeat, no-repeat;
+        background-position: -70vw 0%, 10vw 20%;
+        background-size:250%, 200%;
+        width: 100vw;
+        min-height: 100dvh;
+        filter: var(--orange-50) !important; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
         overflow-x: hidden;
     }
-
     header {
         align-items: center;
     }
