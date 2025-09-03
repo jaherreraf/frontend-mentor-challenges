@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*### Primary*/
+    --blue-600: hsl(185, 75%, 39%);
+    --navy-950: hsl(229, 23%, 23%);
+    --gray-500: hsl(227, 10%, 46%);
+    /*### Neutral*/
+    --gray-100: hsl(225, 10%, 92%);
+}
+
+body {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Roboto", "Kumbh Sans", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg), var(--blue-600);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 65%, 70%;
+    background-position: -60% -40vh, 140% 60vh;
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+}
+
+#card {
+    background-color: var(--gray-100);
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    border-radius: 14px 14px 14px 14px;
+    -webkit-border-radius: 14px 14px 14px 14px;
+    -moz-border-radius: 14px 14px 14px 14px;
+    box-shadow: 0px 0px 0.5px 0px var(--navy-950);
+    -webkit-box-shadow: 0px 0px 0.5px 0px var(--navy-950);
+    -moz-box-shadow: 0px 0px 0.5px 0px var(--navy-950);
+    animation: slideDown 1.5s ease-in-out forwards;
+}
+
+.background {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    background: url(images/bg-pattern-card.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    border-radius: 14px 14px 0px 0px;
+    -webkit-border-radius: 14px 14px 0px 0px;
+    -moz-border-radius: 14px 14px 0px 0px;
+}
+
+.avatar {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid var(--gray-100);
+    border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    -moz-border-radius: 50% 50% 50% 50%;
+    animation: fadeIn 1s ease-in-out 0.5s;
+}
+
+.information {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    place-content: center;
+    gap: 1rem;
+    animation: fadeIn 1s ease-in-out 0.6s; 
+}
+
+.wrapper-name-age {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.name,
+.stats {
+    font-weight: 700;
+    font-size: 18px;
+}
+.stats{
+    animation: fadeIn 1s ease-in-out 0.7s;
+}
+.age {
+    font-size: 18px;
+}
+
+.location,
+.age,
+.title {
+    color: var(--gray-500);
+}
+
+.location {
+    width: 100%;
+    text-align: center;
+}
+
+.social-media-metrics {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    border-top: 0.5px solid var(--gray-500);
+}
+
+.social-media-metrics>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-media-metrics>div>.title {
+    letter-spacing: 0.1rem;
+    animation: fadeIn 1s ease-in-out 0.8s;
+}
+
+footer {
+    position: fixed;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    color: var(--navy-950);
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+a {
+    text-decoration: none;
+    background: linear-gradient(to right, hsl(229, 23%, 23%), hsl(227, 10%, 46%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: hsl(229, 23%, 23%); /* Esto es una medida de seguridad para navegadores antiguos */
+}
+
+@media screen and (max-width:600px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        background: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg), var(--blue-600);
+        background-repeat: no-repeat, no-repeat;
+        background-size: 50%, 80%;
+        background-position: -20% -20%, 60vw 50vh;
+        display: grid;
+        place-content: center;
+        gap: 2rem;
+    }
+
+    #card {
+        background-color: var(--gray-100);
+        width: 60vw;
+        height: 50vh;
+    }
+
+    .background {
+        position: relative;
+        height: 22vw;
+        width: 100%;
+    }
+
+    .avatar {
+        top: 40%;
+        border: 3px solid var(--gray-100);
+    }
+    footer{
+        text-align: center;
+    }
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
