@@ -6,13 +6,13 @@ const nav = ["Product", "Features", "Pricing"];
 
 <Layout>
 	<div
-		class="relative h-screen w-screen py-12 font-barlow text-lg flex flex-col items-center justify-between overflow-x-hidden"
+		class="relative min-h-screen md:h-screen w-screen py-12 font-barlow text-lg flex flex-col items-center justify-between overflow-x-hidden"
 	>
 		<div
-			class="absolute top-0 right-0 w-[45vw] h-[65vh] md:w-[42vw] md:h-[49vh] bg-blue-light rounded-bl-4xl -z-10"
+			class="animate-fadeIn absolute top-0 right-0 w-[210px] h-[420px] md:w-[42vw] md:h-[49vh] bg-blue-light rounded-bl-4xl -z-10"
 		>
 		</div>
-		<header class="w-full flex items-center justify-between px-12 md:px-24">
+		<header class="animate-fadeUp w-full flex items-center justify-between px-12 md:px-24">
 			<img src={logo.src} class="size-6 md:size-12" />
 			<div class="hidden md:flex items-center gap-10">
 				<ul class="flex items-center justify-center gap-4">
@@ -43,7 +43,7 @@ const nav = ["Product", "Features", "Pricing"];
 				class="mt-32 md:mt-0 pl-12 md:pl-24 row-start-2 md:row-start-1 w-full h-full flex flex-col items-start justify-center gap-6"
 			>
 				<p
-					class="uppercase tracking-widest md:tracking-wide text-slate-300 font-medium"
+					class="animate-fadeLeft uppercase tracking-widest md:tracking-wide text-slate-300 font-medium"
 				>
 					<span
 						class="new bg-blue-dark text-white rounded-full px-2 py-1 uppercase"
@@ -52,42 +52,43 @@ const nav = ["Product", "Features", "Pricing"];
 					Monograph Dashboard
 				</p>
 				<h1
-					class="text-6xl max-w-lg text-blue-dark md:max-w-md font-bold uppercase font-barlowcondensed"
+					class="animate-fadeRight text-6xl max-w-lg text-blue-dark md:max-w-md font-bold uppercase font-barlowcondensed"
 				>
 					Powerful insights into your team
 				</h1>
-				<p class="mb-4 text-slate-700 max-w-72">
+				<p class="animate-fadeIn mb-4 text-slate-700 max-w-72">
 					Project planning and time tracking for agile teams
 				</p>
 				<div class="flex items-center gap-8 w-full">
 					<button
-						class="bg-button text-white px-12 w-full md:px-6 py-4 font-barlowcondensed rounded-sm uppercase tracking-wide cursor-pointer transition-all duration-500 ease-in-out hover:opacity-70"
+						class="animate-fadeLeft bg-button text-white px-12 w-full md:px-6 py-4 font-barlowcondensed rounded-sm uppercase tracking-wide cursor-pointer transition-all duration-500 ease-in-out hover:opacity-70"
 						>Schedule a demo</button
 					>
 					<span
-						class="uppercase tracking-wide font-barlowcondensed text-slate-400 px-12 w-full md:px-6 py-4"
+						class="animate-fadeRight uppercase tracking-wide font-barlowcondensed text-slate-400 px-12 w-full md:px-6 py-4"
 						>to see a preview</span
 					>
 				</div>
 			</div>
 			<div
 				style="background-image: url(/src/assets/illustration-devices.svg);"
-				class="row-start-1 min-w-[250px] h-[300px] md:min-w-[650px] w-full md:h-[400px] bg-no-repeat bg-cover bg-[17vw_0%] md:bg-[9vw_0%]"
+				class="animate-fadeRight row-start-1 min-w-[250px] h-[300px] md:min-w-[650px] w-full md:h-[450px] bg-no-repeat bg-cover bg-[0vw_0%] md:bg-[13vw_0%]"
 			>
 			</div>
 		</div>
-		<footer class="w-full mt-8 grid place-content-center">
-			<p class="attribution text-center md:text-justify">
+		<footer class="animate-fadeDown w-full mt-8 grid place-content-center">
+			<p class="attribution text-center md:text-justify font-bold">
 				Challenge by <a
 					href="https://www.frontendmentor.io?ref=challenge"
-					target="_blank">Frontend Mentor</a
-				>. Coded by <a href="#" target="_blank">Jaherreraf</a>.
+					target="_blank"
+					class="transition-all duration-300 ease-in-out hover:underline cursor-pointer" >Frontend Mentor</a
+				>. Coded by <a href="https://www.frontendmentor.io/profile/jaherreraf" class="bg-gradient-to-r from-blue-dark to-blue-light bg-clip-text text-transparent transition-all duration-300 ease-in-out hover:underline cursor-pointer" target="_blank">Jaherreraf</a>.
 			</p>
 		</footer>
 
 		<div
 			id="sidebar"
-			class="fixed w-screen h-screen px-14 flex flex-col items-center justify-start gap-2 transition-all duration-500 ease-in-out"
+			class="animate-fadeIn fixed w-screen h-screen px-14 flex flex-col items-center justify-start gap-2 transition-all duration-500 ease-in-out"
 		>
 			<div class="w-full flex items-center justify-end">
 				<div
