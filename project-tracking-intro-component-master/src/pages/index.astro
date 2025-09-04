@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import logo from "../assets/logo.svg";
+const nav = ["Product", "Features", "Pricing"];
+---
+
+<Layout>
+	<div
+		class="relative h-screen w-screen py-12 font-barlow text-lg flex flex-col items-center justify-between overflow-x-hidden"
+	>
+		<div
+			class="absolute top-0 right-0 w-[45vw] h-[65vh] md:w-[42vw] md:h-[49vh] bg-blue-light rounded-bl-4xl -z-10"
+		>
+		</div>
+		<header class="w-full flex items-center justify-between px-12 md:px-24">
+			<img src={logo.src} class="size-6 md:size-12" />
+			<div class="hidden md:flex items-center gap-10">
+				<ul class="flex items-center justify-center gap-4">
+					{
+						nav.map((item) => (
+							<li class="uppercase font-barlowcondensed font-medium cursor-pointer transition-all duration-500 ease-in-out hover:underline">
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<span
+					class="uppercase font-barlowcondensed font-medium text-slate-500 cursor-pointer transition-all duration-500 ease-in-out hover:underline"
+					>Login</span
+				>
+			</div>
+			<div
+				id="menu"
+				class="inline-flex md:hidden bg-contain bg-no-repeat bg-center size-6 cursor-pointer transition-all duration-500 ease-in-out delay-75"
+				style="background: url(/src/assets/icon-hamburger.svg);"
+			>
+			</div>
+		</header>
+		<div
+			class="mt-8 md:mt-0 w-full grid grid-cols-1 md:grid-cols-2 justify-between items-center"
+		>
+			<div
+				class="mt-32 md:mt-0 pl-12 md:pl-24 row-start-2 md:row-start-1 w-full h-full flex flex-col items-start justify-center gap-6"
+			>
+				<p
+					class="uppercase tracking-widest md:tracking-wide text-slate-300 font-medium"
+				>
+					<span
+						class="new bg-blue-dark text-white rounded-full px-2 py-1 uppercase"
+						>New</span
+					>
+					Monograph Dashboard
+				</p>
+				<h1
+					class="text-6xl max-w-lg text-blue-dark md:max-w-md font-bold uppercase font-barlowcondensed"
+				>
+					Powerful insights into your team
+				</h1>
+				<p class="mb-4 text-slate-700 max-w-72">
+					Project planning and time tracking for agile teams
+				</p>
+				<div class="flex items-center gap-8 w-full">
+					<button
+						class="bg-button text-white px-12 w-full md:px-6 py-4 font-barlowcondensed rounded-sm uppercase tracking-wide cursor-pointer transition-all duration-500 ease-in-out hover:opacity-70"
+						>Schedule a demo</button
+					>
+					<span
+						class="uppercase tracking-wide font-barlowcondensed text-slate-400 px-12 w-full md:px-6 py-4"
+						>to see a preview</span
+					>
+				</div>
+			</div>
+			<div
+				style="background-image: url(/src/assets/illustration-devices.svg);"
+				class="row-start-1 min-w-[250px] h-[300px] md:min-w-[650px] w-full md:h-[400px] bg-no-repeat bg-cover bg-[17vw_0%] md:bg-[9vw_0%]"
+			>
+			</div>
+		</div>
+		<footer class="w-full mt-8 grid place-content-center">
+			<p class="attribution text-center md:text-justify">
+				Challenge by <a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank">Frontend Mentor</a
+				>. Coded by <a href="#" target="_blank">Jaherreraf</a>.
+			</p>
+		</footer>
+
+		<div
+			id="sidebar"
+			class="fixed w-screen h-screen px-14 flex flex-col items-center justify-start gap-2 transition-all duration-500 ease-in-out"
+		>
+			<div class="w-full flex items-center justify-end">
+				<div
+					id="close"
+					class="size-6 bg-contain bg-no-repeat bg-center cursor-pointer transition-all duration-500 ease-in-out"
+					style="background: url(/src/assets/icon-close.svg);"
+				>
+				</div>
+			</div>
+			<div
+				class="max-h-96 w-full bg-white flex flex-col items-center justify-center gap-4 p-4 rounded-md shadow-md"
+			>
+				<ul class="flex flex-col items-center justify-center gap-4">
+					{
+						nav.map((item) => (
+							<li class="uppercase font-barlowcondensed cursor-pointer font-bold transition-all duration-500 ease-in-out hover:underline">
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<span
+					class="w-full text-slate-500 font-bold text-center uppercase font-barlowcondensed border-t border-t-gray-100 pt-2 transition-all duration-500 ease-in-out hover:underline"
+					>Login</span
+				>
+			</div>
+		</div>
+	</div>
+	<script>
+		console.log("FRONTEND MENTOR CHALLENGE BY JAHERRERAF");
+		const menu = document.querySelector("#menu");
+		const close = document.querySelector("#close");
+		const sidebar = document.querySelector("#sidebar");
+
+		sidebar.style.right = "-120vw";
+		menu.addEventListener("click", function () {
+			sidebar.style.right = "0vw";
+			menu.style.opacity = 0;
+		});
+		close.addEventListener("click", function () {
+			sidebar.style.right = "-120vw";
+			menu.style.opacity = 1;
+		});
+	</script>
+</Layout>
