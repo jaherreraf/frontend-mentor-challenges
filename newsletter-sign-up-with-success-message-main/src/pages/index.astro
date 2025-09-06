@@ -1,0 +1,161 @@
+---
+import "../style/global.css";
+import iconList from "../assets/icon-list.svg";
+import iconSuccess from "../assets/icon-success.svg"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>
+			Frontend Mentor | Newsletter sign-up form with success message
+		</title>
+	</head>
+	<body>
+		<div
+			class="w-screen h-screen bg-Blue-800 text-base font-roboto grid place-content-center md:gap-10"
+		>
+			<main
+				id="sign-up"
+				class="grid grid-cols-1 md:grid-cols-2 md:rounded-xl w-screen h-screen md:w-[650px] md:h-[500px] md:p-4 bg-White animate-fadeUp"
+			>
+				<!-- Sign-up form start -->
+				<div
+					class="row-start-2 md:row-start-1 w-full h-full grid grid-flow-row justify-center items-center p-6 md:p-4"
+				>
+					<h1
+						class="text-Blue-800 font-robotoBold font-black text-5xl animate-fadeIn"
+					>
+						Stay updated!
+					</h1>
+					<p class="text-Blue-700 max-w-xs md:max-w-full animate-fadeIn">
+						Join 60,000+ product managers receiving monthly updates
+						on:
+					</p>
+					<ul
+						class="grid grid-flow-row items-center justify-start gap-4 w-full"
+					>
+						<li class="flex items-center gap-4 animate-fadeLeft">
+							<img
+								src={iconList.src}
+								alt="icono de lista"
+								class="animate-fadeIn"
+							/>
+							<span class="text-Blue-700"
+								>Product discovery and building what matters</span
+							>
+						</li>
+						<li class="flex items-center gap-4 animate-fadeLeft">
+							<img
+								src={iconList.src}
+								alt="icono de lista"
+								class="animate-fadeIn"
+							/>
+							<span class="text-Blue-700"
+								>Measuring to ensure updates are a success</span
+							>
+						</li>
+						<li class="flex items-center gap-4 animate-fadeLeft">
+							<img
+								src={iconList.src}
+								alt="icono de lista"
+								class="animate-fadeIn"
+							/>
+							<span class="text-Blue-700">And much more!</span>
+						</li>
+					</ul>
+					<div
+						class="w-full grid grid-cols-1 items-center justify-start gap-2"
+					>
+						<div class="w-full flex items-center justify-between">
+							<label
+								for="email"
+								class="font-robotoBold font-semibold text-sm animate-fadeIn"
+								>Email address</label
+							>
+							<span
+								id="error-message"
+								class="hidden font-robotoBold font-semibold text-Red text-sm transition-all duration-500 ease-in-out animate-fadeIn"
+								>Valid email required</span
+							>
+						</div>
+						<input
+							id="email"
+							name="email"
+							type="text"
+							placeholder="email@company.com"
+							class="border border-Blue-700 rounded-lg px-6 py-4 min-w-full w-full cursor-pointer outline-none transition-all duration-500 ease-in-out animate-fadeLeft"
+						/>
+					</div>
+					<button
+						id="submit"
+						class="p-6 w-full bg-Blue-800 text-White rounded-lg font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-Red hover:bg-Red animate-fadeLeft"
+						>Subscribe to monthly newsletter</button
+					>
+				</div>
+				<!-- Sign-up form end -->
+				<div
+					class="bg-[url(../assets/illustration-sign-up-mobile.svg)] md:bg-[url(../assets/illustration-sign-up-tablet.svg)] lg:bg-[url(../assets/illustration-sign-up-desktop.svg)] bg-no-repeat bg-center w-screen min-h-48 h-full md:w-full rounded-bl-2xl rounded-br-2xl  md:rounded-xl animate-fadeRight"
+				>
+				</div>
+			</main>
+			<!-- Thanks  start -->
+			<div class="md:rounded-4xl w-screen h-screen md:w-[350px] md:h-[380px] p-8 bg-White grid grid-flow-row content-around animate-fadeUp" id="thanks">
+				<div class="grid grid-flow-row items-center gap-2 md:gap-4 w-full h-full min-h-96 md:min-h-12 ">
+					<img src={iconSuccess.src}  class="md:size-20 animate-fadeLeft">
+					<h2 class="text-Blue-800 font-robotoBold font-black text-5xl animate-fadeIn">Thanks for subscribing!</h2>
+					<p class="text-Blue-700 text-left animate-fadeIn">
+					A confirmation email has been sent to <span id="youremail" class="font-robotoBold font-semibold">ash@loremcompany.com</span>. Please open it and click the button inside
+					to confirm your subscription.
+					</p>
+				</div>
+				<button id="dismiss" class="mt-36 md:mt-0 p-6 w-full max-h-20 text-center bg-Blue-800 text-White rounded-lg font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-Red hover:bg-Red animate-fadeLeft">
+					Dismiss message
+				</button>
+			</div>
+			<!-- Thanks end -->
+			<footer class="w-screen md:w-full md:mt-36 h-full text-center bg-White md:bg-Blue-800 p-6  text-Blue-800 md:text-White font-robotoBold font-bold animate-fadeUp">
+				Challenge by <a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank">Frontend Mentor</a
+				>. Coded by <a href="#" target="_blank" class="bg-gradient-to-r from-Blue-800 to-BLue-700 md:from-White md:to-slate-500 bg-clip-text text-transparent">Jaherreraf.</a>
+			</footer>
+		</div>
+		<script>
+			console.log("CHALLENGUE FRONTEND MENTOR BY JAHERRERAF");
+			const thanks = document.querySelector("#thanks");
+			thanks.classList.add('hidden')
+			const submit = document.querySelector("#submit");
+			const emailInput = document.querySelector("#email");
+			const errorMessage = document.querySelector("#error-message");
+			const dismiss = document.querySelector("#dismiss")
+
+			submit.addEventListener("click", function (event) {
+				event.preventDefault();
+
+				const regex =
+					/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
+				const email = emailInput.value;
+
+				if (!regex.test(email) || email === "") {
+					errorMessage.classList.remove("hidden");
+					emailInput.classList.add("border-Red","bg-Red/5","text-Red",);
+					emailInput.classList.remove("border-Blue-700"); // Quita la clase de borde normal
+				} else {
+					document.querySelector("#youremail").innerHTML = email
+					const signup = document.querySelector("#sign-up");
+					signup.classList.remove("grid");
+					signup.classList.add("hidden");
+					thanks.classList.remove("hidden");
+					thanks.classList.add("grid");
+				}
+			});
+			dismiss.addEventListener('click',function(){
+				location.reload();
+			});
+		</script>
+	</body>
+</html>

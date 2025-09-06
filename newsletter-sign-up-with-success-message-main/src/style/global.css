@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@font-face {
+    font-family: 'Roboto-Bold','Roboto', sans-serif;
+    src: url(/public/fonts/Roboto-Bold.ttf);   
+}
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(/public/fonts/Roboto-Regular.ttf);   
+}
+@theme{
+    --font-robotoBold:'Roboto-Bold','Roboto', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --color-Red: hsl(4, 100%, 67%);
+    --color-Blue-800: hsl(234, 29%, 20%);
+    --color-Blue-700: hsl(235, 18%, 26%);
+    --color-Grey: hsl(0, 0%,58%);
+    --color-White: hsl(0, 0%, 100%);
+    --animate-fadeIn: fadeIn 1s ease-out;
+    --animate-fadeUp: fadeUp 1s ease-out;
+    --animate-fadeLeft: fadeLeft 1s ease-out;
+    --animate-fadeRight: fadeRight 1s ease-out;
+    @keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    @keyframes fadeUp{
+        from{
+            transform: translateY(-100px);
+            opacity: 0.5;
+        }to{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    @keyframes fadeLeft{
+        from{
+            transform: translateX(-100px);
+            opacity: 0.5;
+        }to{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    @keyframes fadeRight{
+        from{
+            transform: translateX(100px);
+            opacity: 0.5;
+        }to{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+}

@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import logo from "../assets/logo.svg";
+import hamburger from '../assets/icon-hamburger.svg'
+import close from '../assets/icon-close.svg'
+import devices from '../assets/illustration-devices.svg'
 const nav = ["Product", "Features", "Pricing"];
 ---
 
@@ -32,7 +35,7 @@ const nav = ["Product", "Features", "Pricing"];
 			<div
 				id="menu"
 				class="inline-flex md:hidden bg-contain bg-no-repeat bg-center size-6 cursor-pointer transition-all duration-500 ease-in-out delay-75"
-				style="background: url(/src/assets/icon-hamburger.svg);"
+				style={`background: url(${hamburger.src});`}
 			>
 			</div>
 		</header>
@@ -71,7 +74,7 @@ const nav = ["Product", "Features", "Pricing"];
 				</div>
 			</div>
 			<div
-				style="background-image: url(/src/assets/illustration-devices.svg);"
+				style={`background-image: url(${devices.src});`}
 				class="animate-fadeRight row-start-1 min-w-[250px] h-[300px] md:min-w-[650px] w-full md:h-[450px] bg-no-repeat bg-cover bg-[0vw_0%] md:bg-[13vw_0%]"
 			>
 			</div>
@@ -94,7 +97,7 @@ const nav = ["Product", "Features", "Pricing"];
 				<div
 					id="close"
 					class="size-6 bg-contain bg-no-repeat bg-center cursor-pointer transition-all duration-500 ease-in-out"
-					style="background: url(/src/assets/icon-close.svg);"
+					style={`background: url(${close.src});`}
 				>
 				</div>
 			</div>
