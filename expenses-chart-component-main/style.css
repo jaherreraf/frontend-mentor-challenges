@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=League+Spartan:wght@100..900&family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /*Primary*/
+    --Red-500: hsl(10, 79%, 65%);
+    --Blue-300: hsl(186, 34%, 65%);
+    /*Neutral*/
+    --Brown-950: hsl(25, 47%, 15%);
+    --Brown-400: hsl(28, 10%, 53%);
+    --Red-100: hsl(26, 66%, 93%);
+}
+
+body {
+    background: var(--Red-100);
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-items: center;
+    place-content: center;
+    place-items: center;
+    gap: 2rem;
+    font-family: "DM Sans", "League Spartan", "Outfit", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.app {
+    display: grid;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: min(92vw, 560px);
+    margin-inline: auto;
+}
+
+header {
+    background: var(--Red-500);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--Red-100);
+    animation: fadeIn 1s ease-in-out;
+}
+
+header>div {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-auto-flow: row;
+    gap: 1rem;
+    animation: fadeLeft 1s ease-in-out forwards;
+}
+
+strong {
+    font-weight: 700;
+}
+
+#logo {
+    background: url(/images/logo.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 4rem;
+    height: 4rem;
+}
+
+main {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: auto;
+    height: auto;
+    min-height: 300px;
+    display: grid;
+    grid-auto-flow: row;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--Brown-950);
+    animation:  fadeRight 1s ease-in-out forwards;
+}
+
+#graph {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: end;
+    /* align bars to bottom */
+    justify-content: center;
+    min-height: 14rem;
+    /* ensure enough height for labels + bars */
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    cursor: grab;
+    animation:  fadeUp 1s ease-in-out forwards;
+    animation-delay: var(--bar-delay, 0ms);
+}
+
+.amount {
+    opacity: 0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 6rem;
+    text-align: center;
+    background-color: var(--Brown-950);
+    color: var(--Red-100);
+    transition: opacity 0.5s ease-in-out;
+    font-size: 16px;
+}
+
+.bar:hover {
+    .amount {
+        opacity: 1;
+    }
+    .bar-chart{
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+.bar-chart {
+    background-color: var(--bg-bar-chart);
+    min-height: 5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.day {
+    color: var(--Brown-400);
+    text-align: center;
+}
+
+section {
+    border-top: 1.5px solid var(--Red-100);
+    height: 8rem;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    animation: fadeRight 1s ease-in-out forwards;
+}
+.month-total{
+    
+    display: grid;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+.month-total > span{
+    color:var(--Brown-400);
+}
+.month-total > strong{
+    font-size: 24px;
+    color: var(--Brown-950);
+}
+.second-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+} 
+.second-content span:first-child{
+    color: var(--Brown-950);
+}
+.second-content span:last-child{
+    color: var(--Brown-400);
+}
+footer {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    color: var(--Brown-400);
+    animation:  fadeIn 1s ease-in-out;
+}
+footer p{
+    text-align: center;
+}
+.letter{
+    animation: letter 3s ease-in-out forwards;
+}
+a {
+    text-decoration: none;
+    color: var(--Brown-950);
+    font-weight: 700;
+    cursor: pointer;
+}
+/* Animated profile letters */
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(16px) rotate(180deg);
+    will-change: transform, opacity;
+    animation: letterIn 600ms ease-out forwards;
+    animation-delay: calc(var(--i, 0) * 60ms);
+}
+@keyframes letterIn {
+    from {
+        opacity: 0;
+        transform: translateX(16px) rotate(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes  fadeLeft {
+    from{
+        opacity: 0.5;
+        transform: translateX(-10px);
+    }to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes  fadeRight {
+    from{
+        opacity: 0.5;
+        transform: translateX(10px);
+    }to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes  fadeUp {
+    from{
+        opacity: 0.5;
+        transform: translateY(-10px);
+    }to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes letter {
+    0%{
+        transform: translateX(50px);
+        opacity: 0.8;
+        transform: rotate(45deg);
+    }
+    50%{
+        transform: translateX(25px);
+        opacity: 0.9;
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+        transform: rotate(360deg);   
+    }
+    
+}
+
+/* Respect user reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
