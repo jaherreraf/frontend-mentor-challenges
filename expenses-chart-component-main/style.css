@@ -200,6 +200,8 @@ footer {
 }
 footer p{
     text-align: center;
+    padding: 0rem 2rem;
+    white-space: wrap;
 }
 .letter{
     animation: letter 3s ease-in-out forwards;
@@ -211,6 +213,9 @@ a {
     cursor: pointer;
 }
 /* Animated profile letters */
+footer > #profile{
+    cursor: pointer;
+}
 .letter {
     display: inline-block;
     opacity: 0;
@@ -218,6 +223,11 @@ a {
     will-change: transform, opacity;
     animation: letterIn 600ms ease-out forwards;
     animation-delay: calc(var(--i, 0) * 60ms);
+    cursor: pointer;
+    transition: all 600ms ease-in-out;
+}
+.letter:hover{
+    transform: translateX(1px) rotate(90deg);
 }
 @keyframes letterIn {
     from {
