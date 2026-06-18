@@ -1,0 +1,55 @@
+---
+// src/components/Step-1.astro
+---
+<div class="step-1 w-full">
+    <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+            <h2 class="text-3xl font-bold text-marine-blue">Personal info</h2>
+            <p class="text-cool-gray">Please provide your name, email address, and phone number.</p>
+        </div>
+        
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-center">
+                    <label for="name" class="text-sm font-medium text-marine-blue">Name</label>
+                    <span id="name-error" class="text-sm font-bold text-strawberry-red hidden">This field is required</span>
+                </div>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="e.g. Stephen King" 
+                    class="w-full border border-light-gray rounded-lg px-4 py-3 font-medium text-marine-blue placeholder:text-cool-gray outline-none focus:border-purplish-blue transition-colors"
+                >
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-center">
+                    <label for="email" class="text-sm font-medium text-marine-blue">Email Address</label>
+                    <span id="email-error" class="text-sm font-bold text-strawberry-red hidden">This field is required</span>
+                </div>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="e.g. stephenking@lorem.com" 
+                    class="w-full border border-light-gray rounded-lg px-4 py-3 font-medium text-marine-blue placeholder:text-cool-gray outline-none focus:border-purplish-blue transition-colors"
+                >
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <div class="flex justify-between items-center">
+                    <label for="phone" class="text-sm font-medium text-marine-blue">Phone Number</label>
+                    <span id="phone-error" class="text-sm font-bold text-strawberry-red hidden">This field is required</span>
+                </div>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="e.g. +1 234 567 890" 
+                    class="w-full border border-light-gray rounded-lg px-4 py-3 font-medium text-marine-blue placeholder:text-cool-gray outline-none focus:border-purplish-blue transition-colors"
+                >
+            </div>
+        </div>
+    </div>
+</div>

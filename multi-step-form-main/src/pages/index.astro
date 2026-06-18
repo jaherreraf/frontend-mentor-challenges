@@ -1,0 +1,376 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import Step1 from "../components/Step-1.astro";
+import Step2 from "../components/Step-2.astro";
+import Step3 from "../components/Step-3.astro";
+import Step4 from "../components/Step-4.astro";
+import Step5 from "../components/Step-5.astro";
+import Layout from "../layouts/Layout.astro";
+---
+<Layout>
+  <div class="min-h-screen bg-magnolia flex flex-col md:items-center md:justify-center md:p-4">
+    <div class="md:bg-white md:rounded-2xl md:shadow-xl md:flex md:flex-row md:w-full md:max-w-4xl md:min-h-[568px]">
+      <Sidebar />
+
+      <div class="flex-1 flex flex-col bg-white rounded-xl shadow-xl mx-4 -mt-6 md:mx-0 md:mt-0 md:shadow-none md:rounded-none relative z-10 md:z-auto">
+        <div class="flex-1 flex flex-col justify-between p-6 md:p-10 pb-20 md:pb-10">
+          <div class="step-container">
+            <div data-step="0" class="step-section">
+              <Step1 />
+            </div>
+            <div data-step="1" class="step-section hidden">
+              <Step2 />
+            </div>
+            <div data-step="2" class="step-section hidden">
+              <Step3 />
+            </div>
+            <div data-step="3" class="step-section hidden">
+              <Step4 />
+            </div>
+            <div data-step="4" class="step-section hidden">
+              <Step5 />
+            </div>
+          </div>
+
+          <div id="innerNav" class="max-md:hidden md:flex justify-between items-center mt-8 pt-4">
+            <button id="innerPrevBtn" class="prev-btn text-cool-gray font-medium text-sm hover:text-marine-blue transition-colors">
+              Go Back
+            </button>
+            <button id="innerNextBtn" class="next-btn bg-marine-blue text-white px-5 py-3 rounded-lg font-medium text-sm hover:brightness-150 transition-all">
+              Next Step
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="navigationContainer" class="flex md:hidden fixed bottom-0 left-0 right-0 bg-white p-4 z-20 border-t border-light-gray">
+      <div class="flex justify-between items-center w-full max-w-2xl mx-auto">
+        <button id="prevBtn" class="prev-btn text-cool-gray font-medium text-sm hover:text-marine-blue transition-colors">
+          Go Back
+        </button>
+        <button id="nextBtn" class="next-btn bg-marine-blue text-white px-5 py-3 rounded-lg font-medium text-sm hover:brightness-150 transition-all">
+          Next Step
+        </button>
+      </div>
+    </div>
+
+    <footer class="attribution text-center text-xs py-4 text-cool-gray animate-fade-in-up">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="relative inline-block text-marine-blue no-underline after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-[1.5px] after:bg-purplish-blue after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:text-purplish-blue transition-colors duration-300">Frontend Mentor</a>. 
+      Coded by <a href="https://www.frontendmentor.io/profile/jaherreraf" class="relative inline-block text-marine-blue no-underline after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-[1.5px] after:bg-purplish-blue after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:text-purplish-blue transition-colors duration-300">Jaherreraf</a>.
+    </footer>
+  </div>
+</Layout>
+<script>
+    const steps = document.querySelectorAll<HTMLDivElement>(".step-section");
+    
+    const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement | null;
+    const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement | null;
+    const navigationContainer = document.getElementById("navigationContainer") as HTMLDivElement | null;
+    const innerNextBtn = document.getElementById("innerNextBtn") as HTMLButtonElement | null;
+    const innerPrevBtn = document.getElementById("innerPrevBtn") as HTMLButtonElement | null;
+    const innerNav = document.getElementById("innerNav") as HTMLDivElement | null;
+    const sidebarCircles = document.querySelectorAll<HTMLDivElement>("[data-sidebar-step]");
+
+    const planCards = document.querySelectorAll<HTMLButtonElement>(".plan-card");
+    const billingToggle = document.getElementById("billing-toggle") as HTMLInputElement | null;
+    const labelMonthly = document.getElementById("label-monthly") as HTMLSpanElement | null;
+    const labelYearly = document.getElementById("label-yearly") as HTMLSpanElement | null;
+
+    const addonCards = document.querySelectorAll<HTMLLabelElement>(".addon-card");
+
+    const summaryPlanName = document.getElementById("summary-plan-name") as HTMLSpanElement | null;
+    const summaryPlanPrice = document.getElementById("summary-plan-price") as HTMLSpanElement | null;
+    const summaryAddonsList = document.getElementById("summary-addons-list") as HTMLDivElement | null;
+    const summaryTotalLabel = document.getElementById("summary-total-label") as HTMLSpanElement | null;
+    const summaryTotalPrice = document.getElementById("summary-total-price") as HTMLSpanElement | null;
+    const changePlanBtn = document.getElementById("change-plan-btn") as HTMLButtonElement | null;
+
+    let currentStep: number = 0;
+    let selectedPlan: string = "arcade"; 
+    let isYearly: boolean = false;
+    let selectedAddons: string[] = [];
+
+    const pricesData: Record<string, { monthly: number; yearly: number }> = {
+        arcade: { monthly: 9, yearly: 90 },
+        advanced: { monthly: 12, yearly: 120 },
+        pro: { monthly: 15, yearly: 150 },
+        "online-service": { monthly: 1, yearly: 10 },
+        "larger-storage": { monthly: 2, yearly: 20 },
+        "customizable-profile": { monthly: 2, yearly: 20 }
+    };
+
+    function validateStep1(): boolean {
+        let isValid = true;
+
+        const nameInput = document.getElementById("name") as HTMLInputElement | null;
+        const emailInput = document.getElementById("email") as HTMLInputElement | null;
+        const phoneInput = document.getElementById("phone") as HTMLInputElement | null;
+
+        const nameError = document.getElementById("name-error") as HTMLSpanElement | null;
+        const emailError = document.getElementById("email-error") as HTMLSpanElement | null;
+        const phoneError = document.getElementById("phone-error") as HTMLSpanElement | null;
+
+        const nameRegex = /^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ\s]+$/;
+        const phoneRegex = /^\+?[\d\s]{7,}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function inputFieldError(input: HTMLInputElement | null, errorSpan: HTMLSpanElement | null, show: boolean, message: string = "This field is required") {
+            if (!input || !errorSpan) return;
+
+            if (show) {
+                errorSpan.textContent = message;
+                errorSpan.classList.remove("hidden");
+                input.classList.add("border-strawberry-red", "focus:border-strawberry-red");
+                input.classList.remove("border-light-gray", "focus:border-purplish-blue");
+                isValid = false;
+            } else {
+                errorSpan.classList.add("hidden");
+                input.classList.remove("border-strawberry-red", "focus:border-strawberry-red");
+                input.classList.add("border-light-gray", "focus:border-purplish-blue");
+            }
+        }
+
+        if (nameInput && nameInput.value.trim() === "") {
+            inputFieldError(nameInput, nameError, true);
+        } else if (nameInput && !nameRegex.test(nameInput.value.trim())) {
+            inputFieldError(nameInput, nameError, true, "Invalid characters: letters only");
+        } else {
+            inputFieldError(nameInput, nameError, false);
+        }
+
+        if (emailInput) {
+            if (emailInput.value.trim() === "") {
+                inputFieldError(emailInput, emailError, true, "This field is required");
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                inputFieldError(emailInput, emailError, true, "Invalid email format");
+            } else {
+                inputFieldError(emailInput, emailError, false);
+            }
+        }
+
+        if (phoneInput && phoneInput.value.trim() === "") {
+            inputFieldError(phoneInput, phoneError, true);
+        } else if (phoneInput && !phoneRegex.test(phoneInput.value.trim())) {
+            inputFieldError(phoneInput, phoneError, true, "Invalid phone format");
+        } else {
+            inputFieldError(phoneInput, phoneError, false);
+        }
+
+        return isValid;
+    }
+
+    planCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            planCards.forEach((c) => {
+                c.classList.remove("border-purplish-blue", "bg-magnolia");
+                c.classList.add("border-light-gray", "bg-white");
+            });
+
+            card.classList.remove("border-light-gray", "bg-white");
+            card.classList.add("border-purplish-blue", "bg-magnolia");
+
+            selectedPlan = card.getAttribute("data-plan") || "arcade";
+        });
+    });
+
+    function updateAddonPrices(): void {
+        addonCards.forEach((card) => {
+            const priceMonthly = card.getAttribute("data-price-monthly");
+            const priceYearly = card.getAttribute("data-price-yearly");
+            const priceSpan = card.querySelector(".addon-price");
+
+            if (isYearly) {
+                if (priceSpan) priceSpan.textContent = `+$${priceYearly}/yr`;
+            } else {
+                if (priceSpan) priceSpan.textContent = `+$${priceMonthly}/mo`;
+            }
+        });
+    }
+
+    billingToggle?.addEventListener("change", (e) => {
+        const target = e.target as HTMLInputElement;
+        isYearly = target.checked;
+
+        if (isYearly) {
+            labelYearly?.classList.replace("text-cool-gray", "text-marine-blue");
+            labelMonthly?.classList.replace("text-marine-blue", "text-cool-gray");
+        } else {
+            labelMonthly?.classList.replace("text-cool-gray", "text-marine-blue");
+            labelYearly?.classList.replace("text-marine-blue", "text-cool-gray");
+        }
+
+        planCards.forEach((card) => {
+            const priceMonthly = card.getAttribute("data-price-monthly");
+            const priceYearly = card.getAttribute("data-price-yearly");
+            const priceSpan = card.querySelector(".plan-price");
+            const bonusSpan = card.querySelector(".bonus-text");
+
+            if (isYearly) {
+                if (priceSpan) priceSpan.textContent = `$${priceYearly}/yr`;
+                bonusSpan?.classList.remove("hidden");
+            } else {
+                if (priceSpan) priceSpan.textContent = `$${priceMonthly}/mo`;
+                bonusSpan?.classList.add("hidden");
+            }
+        });
+
+        updateAddonPrices();
+    });
+
+    const defaultCard = document.querySelector<HTMLButtonElement>('[data-plan="arcade"]');
+    defaultCard?.classList.add("border-purplish-blue", "bg-magnolia");
+
+    addonCards.forEach((card) => {
+        const checkbox = card.querySelector(".addon-checkbox") as HTMLInputElement | null;
+        const addonId = card.getAttribute("data-addon") || "";
+
+        checkbox?.addEventListener("change", () => {
+            if (checkbox.checked) {
+                card.classList.remove("border-light-gray", "bg-white");
+                card.classList.add("border-purplish-blue", "bg-magnolia");
+                if (!selectedAddons.includes(addonId)) selectedAddons.push(addonId);
+            } else {
+                card.classList.remove("border-purplish-blue", "bg-magnolia");
+                card.classList.add("border-light-gray", "bg-white");
+                selectedAddons = selectedAddons.filter(id => id !== addonId);
+            }
+        });
+    });
+
+    function generateSummary(): void {
+        if (!summaryPlanName || !summaryPlanPrice || !summaryAddonsList || !summaryTotalLabel || !summaryTotalPrice) return;
+
+        const periodSuffix = isYearly ? "yr" : "mo";
+        const periodFull = isYearly ? "Yearly" : "Monthly";
+        
+        summaryPlanName.textContent = `${selectedPlan} (${periodFull})`;
+        const planCost = isYearly ? pricesData[selectedPlan].yearly : pricesData[selectedPlan].monthly;
+        summaryPlanPrice.textContent = `$${planCost}/${periodSuffix}`;
+
+        summaryAddonsList.innerHTML = "";
+        let addonsTotalCost = 0;
+
+        if (selectedAddons.length === 0) {
+            summaryAddonsList.innerHTML = `<span class="text-sm text-cool-gray font-medium">No add-ons selected</span>`;
+        } else {
+            selectedAddons.forEach((addonId) => {
+                const addonCost = isYearly ? pricesData[addonId].yearly : pricesData[addonId].monthly;
+                addonsTotalCost += addonCost;
+
+                const formattedName = addonId.replace("-", " ");
+
+                const row = document.createElement("div");
+                row.className = "flex justify-between items-center text-sm";
+                row.innerHTML = `
+                    <span class="text-cool-gray capitalize">${formattedName}</span>
+                    <span class="text-marine-blue font-medium">+$${addonCost}/${periodSuffix}</span>
+                `;
+                summaryAddonsList.appendChild(row);
+            });
+        }
+
+        const grandTotal = planCost + addonsTotalCost;
+        summaryTotalLabel.textContent = `Total (per ${isYearly ? "year" : "month"})`;
+        summaryTotalPrice.textContent = `$${grandTotal}/${periodSuffix}`;
+    }
+
+    changePlanBtn?.addEventListener("click", () => {
+        currentStep = 1;
+        showStep(currentStep);
+    });
+
+    function updateNavVisibility(step: number): void {
+        [navigationContainer, innerNav].forEach((nav) => {
+            if (nav) nav.style.display = step >= 4 ? "none" : "";
+        });
+    }
+
+    function updateNavButtons(step: number): void {
+        const prevBtns = [prevBtn, innerPrevBtn];
+        const nextBtns = [nextBtn, innerNextBtn];
+
+        prevBtns.forEach((btn) => {
+            if (step === 0) {
+                btn?.classList.add("invisible");
+            } else {
+                btn?.classList.remove("invisible");
+            }
+        });
+
+        nextBtns.forEach((btn) => {
+            if (step === 3) {
+                if (btn) btn.textContent = "Confirm";
+                btn?.classList.replace("bg-marine-blue", "bg-purplish-blue");
+            } else {
+                if (btn) btn.textContent = "Next Step";
+                btn?.classList.replace("bg-purplish-blue", "bg-marine-blue");
+            }
+        });
+    }
+
+    function showStep(step: number): void {
+        steps.forEach((section, index) => {
+            if (index === step) {
+                section.classList.remove("hidden");
+            } else {
+                section.classList.add("hidden");
+            }
+        });
+
+        if (step === 3) {
+            generateSummary();
+        }
+
+        sidebarCircles.forEach((circle) => {
+            const circleStepIndex = parseInt(circle.getAttribute("data-sidebar-step") || "0", 10);
+            const activeMatchIndex = step >= 3 ? 3 : step;
+
+            if (circleStepIndex === activeMatchIndex) {
+                circle.classList.add("bg-light-blue", "text-marine-blue", "border-light-blue");
+                circle.classList.remove("text-white", "border-white");
+            } else {
+                circle.classList.remove("bg-light-blue", "text-marine-blue", "border-light-blue");
+                circle.classList.add("text-white", "border-white");
+            }
+        });
+
+        updateNavVisibility(step);
+        updateNavButtons(step);
+    }
+
+    function validateStep3(): boolean {
+        const addonError = document.getElementById("addon-error") as HTMLSpanElement | null;
+        if (selectedAddons.length === 0) {
+            addonError?.classList.remove("hidden");
+            return false;
+        }
+        addonError?.classList.add("hidden");
+        return true;
+    }
+
+    function handleNext(): void {
+        if (currentStep === 0 && !validateStep1()) return;
+        if (currentStep === 2 && !validateStep3()) return;
+
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    }
+
+    function handlePrev(): void {
+        if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    nextBtn?.addEventListener("click", handleNext);
+    prevBtn?.addEventListener("click", handlePrev);
+    innerNextBtn?.addEventListener("click", handleNext);
+    innerPrevBtn?.addEventListener("click", handlePrev);
+
+    updateAddonPrices();
+    showStep(currentStep);
+</script>

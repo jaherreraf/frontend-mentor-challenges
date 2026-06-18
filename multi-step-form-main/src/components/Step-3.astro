@@ -1,0 +1,73 @@
+---
+// src/components/Step-3.astro
+---
+<div class="step-3 w-full">
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
+      <h2 class="text-3xl font-bold text-marine-blue">Pick add-ons</h2>
+      <p class="text-cool-gray">Add-ons help enhance your gaming experience.</p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <span id="addon-error" class="text-sm font-bold text-strawberry-red hidden">Please select at least one add-on</span>
+
+      <label 
+        class="addon-card flex items-center justify-between p-4 md:p-5 border border-light-gray rounded-xl cursor-pointer hover:border-purplish-blue transition-all bg-white select-none"
+        data-addon="online-service"
+        data-price-monthly="1"
+        data-price-yearly="10"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <input 
+            type="checkbox" 
+            class="addon-checkbox w-5 h-5 accent-purplish-blue cursor-pointer rounded" 
+          />
+          <div class="flex flex-col">
+            <span class="font-bold text-marine-blue text-sm md:text-base">Online service</span>
+            <span class="text-cool-gray text-xs md:text-sm">Access to multiplayer games</span>
+          </div>
+        </div>
+        <span class="addon-price text-purplish-blue font-medium text-sm">+$1/mo</span>
+      </label>
+
+      <label 
+        class="addon-card flex items-center justify-between p-4 md:p-5 border border-light-gray rounded-xl cursor-pointer hover:border-purplish-blue transition-all bg-white select-none"
+        data-addon="larger-storage"
+        data-price-monthly="2"
+        data-price-yearly="20"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <input 
+            type="checkbox" 
+            class="addon-checkbox w-5 h-5 accent-purplish-blue cursor-pointer rounded" 
+          />
+          <div class="flex flex-col">
+            <span class="font-bold text-marine-blue text-sm md:text-base">Larger storage</span>
+            <span class="text-cool-gray text-xs md:text-sm">Extra 1TB of cloud save</span>
+          </div>
+        </div>
+        <span class="addon-price text-purplish-blue font-medium text-sm">+$2/mo</span>
+      </label>
+
+      <label 
+        class="addon-card flex items-center justify-between p-4 md:p-5 border border-light-gray rounded-xl cursor-pointer hover:border-purplish-blue transition-all bg-white select-none"
+        data-addon="customizable-profile"
+        data-price-monthly="2"
+        data-price-yearly="20"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <input 
+            type="checkbox" 
+            class="addon-checkbox w-5 h-5 accent-purplish-blue cursor-pointer rounded" 
+          />
+          <div class="flex flex-col">
+            <span class="font-bold text-marine-blue text-sm md:text-base">Customizable profile</span>
+            <span class="text-cool-gray text-xs md:text-sm">Custom theme on your profile</span>
+          </div>
+        </div>
+        <span class="addon-price text-purplish-blue font-medium text-sm">+$2/mo</span>
+      </label>
+
+    </div>
+  </div>
+</div>

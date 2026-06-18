@@ -1,0 +1,74 @@
+---
+// src/components/Step-2.astro
+import ArcadeIcon from '../assets/images/icon-arcade.svg';
+import AdvancedIcon from '../assets/images/icon-advanced.svg';
+import ProIcon from '../assets/images/icon-pro.svg';
+---
+<div class="step-2 w-full">
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
+      <h2 class="text-3xl font-bold text-marine-blue">Select your plan</h2>
+      <p class="text-cool-gray">You have the option of monthly or yearly billing.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      
+      <button 
+        type="button"
+        data-plan="arcade" 
+        data-price-monthly="9"
+        data-price-yearly="90"
+        class="plan-card flex-col gap-4 md:gap-10 p-4 border border-light-gray rounded-xl items-start text-left hover:border-purplish-blue transition-all cursor-pointer bg-white"
+      >
+        <img src={ArcadeIcon.src} alt="Arcade icon" class="w-10 h-10" />
+        <div class="flex flex-col gap-1">
+          <h3 class="font-bold text-marine-blue text-lg capitalize">Arcade</h3>
+          <span class="plan-price text-cool-gray font-medium text-sm">$9/mo</span>
+          <span class="bonus-text text-marine-blue text-xs font-medium hidden">2 months free</span>
+        </div>
+      </button>
+
+      <button 
+        type="button"
+        data-plan="advanced" 
+        data-price-monthly="12"
+        data-price-yearly="120"
+        class="plan-card flex-col gap-4 md:gap-10 p-4 border border-light-gray rounded-xl items-start text-left hover:border-purplish-blue transition-all cursor-pointer bg-white"
+      >
+        <img src={AdvancedIcon.src} alt="Advanced icon" class="w-10 h-10" />
+        <div class="flex flex-col gap-1">
+          <h3 class="font-bold text-marine-blue text-lg capitalize">Advanced</h3>
+          <span class="plan-price text-cool-gray font-medium text-sm">$12/mo</span>
+          <span class="bonus-text text-marine-blue text-xs font-medium hidden">2 months free</span>
+        </div>
+      </button>
+
+      <button 
+        type="button"
+        data-plan="pro" 
+        data-price-monthly="15"
+        data-price-yearly="150"
+        class="plan-card flex-col gap-4 md:gap-10 p-4 border border-light-gray rounded-xl items-start text-left hover:border-purplish-blue transition-all cursor-pointer bg-white"
+      >
+        <img src={ProIcon.src} alt="Pro icon" class="w-10 h-10" />
+        <div class="flex flex-col gap-1">
+          <h3 class="font-bold text-marine-blue text-lg capitalize">Pro</h3>
+          <span class="plan-price text-cool-gray font-medium text-sm">$15/mo</span>
+          <span class="bonus-text text-marine-blue text-xs font-medium hidden">2 months free</span>
+        </div>
+      </button>
+
+    </div>
+
+    <div class="bg-alabaster rounded-xl p-4 flex justify-center items-center gap-6 mt-4">
+      <span id="label-monthly" class="text-sm font-bold text-marine-blue transition-colors">Monthly</span>
+      
+      <label class="relative inline-flex items-center cursor-pointer select-none">
+        <input type="checkbox" id="billing-toggle" class="sr-only peer" />
+        <div class="w-11 h-6 bg-marine-blue rounded-full peer transition-all after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-6"></div>
+      </label>
+
+      <span id="label-yearly" class="text-sm font-bold text-cool-gray transition-colors">Yearly</span>
+    </div>
+  </div>
+</div>

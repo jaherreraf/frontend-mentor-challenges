@@ -1,0 +1,43 @@
+---
+// src/components/Step-4.astro
+---
+<div class="step-4 w-full">
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
+      <h2 class="text-3xl font-bold text-marine-blue">Finishing up</h2>
+      <p class="text-cool-gray">Double-check if everything looks OK before confirming.</p>
+    </div>
+
+    <div class="bg-alabaster rounded-xl p-4 md:p-6 flex flex-col">
+      <div class="flex justify-between items-center pb-5 border-b border-light-gray/60">
+        <div class="flex flex-col items-start">
+          <span id="summary-plan-name" class="font-bold text-marine-blue text-base md:text-lg capitalize">
+            Arcade (Monthly)
+          </span>
+          <button 
+            type="button" 
+            id="change-plan-btn" 
+            class="text-sm text-cool-gray underline hover:text-purplish-blue transition-colors cursor-pointer font-medium"
+          >
+            Change
+          </button>
+        </div>
+        <span id="summary-plan-price" class="font-bold text-marine-blue text-base md:text-lg">
+          $9/mo
+        </span>
+      </div>
+
+      <div id="summary-addons-list" class="flex flex-col gap-4 pt-4">
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center px-4 md:px-6 mt-2">
+      <span id="summary-total-label" class="text-sm text-cool-gray font-medium">
+        Total (per month)
+      </span>
+      <span id="summary-total-price" class="text-xl font-bold text-purplish-blue">
+        +$9/mo
+      </span>
+    </div>
+  </div>
+</div>

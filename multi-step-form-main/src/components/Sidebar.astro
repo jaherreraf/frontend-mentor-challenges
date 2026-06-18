@@ -1,0 +1,61 @@
+---
+import desktopBg from '../assets/images/bg-sidebar-desktop.svg';
+import mobileBg from '../assets/images/bg-sidebar-mobile.svg';
+---
+
+<aside
+  class="sidebar-aside w-full md:w-64 md:rounded-xl py-8 md:py-10 px-4 md:px-8 flex flex-row md:flex-col items-center md:items-start justify-center gap-4 md:gap-8 bg-cover bg-no-repeat bg-bottom text-white"
+  style={`--desktop-bg: url(${desktopBg.src}); --mobile-bg: url(${mobileBg.src});`}
+>
+  <div class="flex items-center gap-4">
+    <div data-sidebar-step="0" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-white flex items-center justify-center font-bold text-sm transition-all duration-300">
+      1
+    </div>
+    <div class="uppercase tracking-wider hidden md:block">
+      <p class="text-xs text-pastel-blue">Step 1</p>
+      <p class="text-sm font-bold text-white leading-tight">Your Info</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <div data-sidebar-step="1" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-white flex items-center justify-center font-bold text-sm transition-all duration-300">
+      2
+    </div>
+    <div class="uppercase tracking-wider hidden md:block">
+      <p class="text-xs text-pastel-blue">Step 2</p>
+      <p class="text-sm font-bold text-white leading-tight">Select Plan</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <div data-sidebar-step="2" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-white flex items-center justify-center font-bold text-sm transition-all duration-300">
+      3
+    </div>
+    <div class="uppercase tracking-wider hidden md:block">
+      <p class="text-xs text-pastel-blue">Step 3</p>
+      <p class="text-sm font-bold text-white leading-tight">Add-ons</p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <div data-sidebar-step="3" class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-white flex items-center justify-center font-bold text-sm transition-all duration-300">
+      4
+    </div>
+    <div class="uppercase tracking-wider hidden md:block">
+      <p class="text-xs text-pastel-blue">Step 4</p>
+      <p class="text-sm font-bold text-white leading-tight">Summary</p>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .sidebar-aside {
+    background-image: var(--mobile-bg);
+  }
+
+  @media (min-width: 768px) {
+    .sidebar-aside {
+      background-image: var(--desktop-bg);
+    }
+  }
+</style>
