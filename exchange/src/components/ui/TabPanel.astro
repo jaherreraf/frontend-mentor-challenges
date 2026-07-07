@@ -1,0 +1,12 @@
+---
+interface Props {
+  id: string
+  hidden?: boolean
+}
+
+const { id, hidden = false } = Astro.props
+---
+
+<div id={id} class:list={["tab-panel", hidden && "hidden"]}>
+  <slot />
+</div>

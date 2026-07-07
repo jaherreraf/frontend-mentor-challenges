@@ -1,0 +1,12 @@
+---
+interface Props {
+  count: number
+  id?: string
+}
+
+const { count, id } = Astro.props
+---
+
+<span {id} class="text-[10px] font-semibold text-(--color-accent-lime) bg-(--color-accent-lime)/10 px-1.5 py-0.5 rounded-full leading-none">
+  {count}
+</span>

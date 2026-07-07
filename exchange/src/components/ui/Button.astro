@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: "primary" | "secondary" | "ghost"
+  id?: string
+  class?: string
+}
+
+const { variant = "secondary", id } = Astro.props
+const base = "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer"
+
+const variants: Record<string, string> = {
+  primary: "bg-(--color-accent-lime) text-(--color-main) hover:brightness-110",
+  secondary: "border border-(--color-border) text-(--color-text-muted) hover:border-(--color-border-hover) hover:text-(--color-text-primary)",
+  ghost: "text-(--color-text-muted) hover:text-(--color-text-primary)",
+}
+---
+
+<button {id} class={`${base} ${variants[variant]}`}>
+  <slot />
+</button>

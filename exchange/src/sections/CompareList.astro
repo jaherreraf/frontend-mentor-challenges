@@ -1,0 +1,48 @@
+---
+import { getFlagUrl } from "../lib/api/frankfurter"
+
+interface Props {
+  from: string
+}
+
+const { from } = Astro.props
+---
+
+<div id="tab-panel-1" class="hidden">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+    <div class="flex items-center gap-2">
+      <span class="text-[10px] font-semibold tracking-widest text-(--color-text-muted) uppercase">Base</span>
+      <button
+        id="compare-base-btn"
+        class="flex items-center gap-2 bg-(--color-input) hover:bg-(--color-swap-bg) transition-colors rounded-md px-3 py-1.5"
+      >
+        <img id="compare-base-flag" src={getFlagUrl(from)} alt={from} class="size-5 rounded-full object-cover shrink-0" />
+        <span id="compare-base-code" class="text-sm font-semibold text-(--color-text-primary)">{from}</span>
+        <img src="/assets/icons/icon-chevron-down.svg" alt="" class="size-3" />
+      </button>
+    </div>
+    <input
+      type="text"
+      id="compare-search"
+      placeholder="Search currency..."
+      class="w-full sm:w-56 bg-(--color-card-alt) border border-(--color-border) rounded-md px-3 py-1.5 text-xs text-(--color-text-primary) placeholder:text-(--color-text-muted) outline-none focus:border-(--color-accent-lime) transition-colors"
+    />
+  </div>
+
+  <div id="compare-loading" class="hidden flex items-center justify-center h-32">
+    <span class="text-xs text-(--color-text-muted) uppercase tracking-widest">Loading rates…</span>
+  </div>
+
+  <div class="overflow-x-auto rounded-lg border border-(--color-border) bg-(--color-card)">
+    <table class="w-full text-left border-collapse min-w-[420px]">
+      <thead>
+        <tr class="bg-(--color-card-alt) border-b border-(--color-border)">
+          <th class="px-4 py-2.5 text-[10px] font-semibold tracking-widest text-(--color-text-muted) uppercase">Currency</th>
+          <th class="px-4 py-2.5 text-[10px] font-semibold tracking-widest text-(--color-text-muted) uppercase text-right">Rate</th>
+          <th class="px-4 py-2.5 text-[10px] font-semibold tracking-widest text-(--color-text-muted) uppercase text-right">1,000 base =</th>
+        </tr>
+      </thead>
+      <tbody id="compare-tbody"></tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+---
+import type { StatsResult } from "../lib/api/frankfurter"
+import { TIME_RANGES, INITIAL_RANGE } from "../lib/constants"
+
+interface Props {
+  stats: StatsResult
+  from: string
+  to: string
+  endDate: string
+  activeRange?: string
+}
+
+const { stats, from, to, endDate, activeRange = INITIAL_RANGE } = Astro.props
+
+const statsDisplay = [
+  { label: "Open",     value: stats.open.toFixed(4),                                                      isPositive: false               },
+  { label: "Last",     value: stats.last.toFixed(4),                                                      isPositive: false               },
+  { label: "Change",   value: `${stats.change >= 0 ? "+" : ""}${stats.change.toFixed(4)}`,                isPositive: stats.change >= 0   },
+  { label: "% Change", value: `${stats.changePercent >= 0 ? "+" : ""}${stats.changePercent.toFixed(2)}%`, isPositive: stats.changePercent >= 0 },
+]
+---
+
+<div id="tab-panel-0">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
+    <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto scrollbar-none">
+      {statsDisplay.map((stat) => (
+        <div class="flex flex-col gap-1 bg-(--color-main) border border-(--color-border) rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 shrink-0">
+          <span class="text-[10px] font-semibold tracking-widest text-(--color-text-muted) uppercase whitespace-nowrap">
+            {stat.label}
+          </span>
+          <span
+            id={`stat-${stat.label.replace("% ", "pct-").toLowerCase()}`}
+            class:list={[
+              "text-sm font-semibold whitespace-nowrap",
+              stat.isPositive ? "text-(--color-market-up)" : "text-(--color-text-primary)",
+            ]}
+          >
+            {stat.value}
+          </span>
+        </div>
+      ))}
+    </div>
+    <ul class="flex items-center gap-1 overflow-x-auto scrollbar-none">
+      {TIME_RANGES.map((range) => (
+        <li
+          data-range={range}
+          class:list={[
+            "range-btn text-xs font-semibold px-2.5 py-1.5 rounded-md cursor-pointer transition-colors shrink-0",
+            range === activeRange
+              ? "bg-(--color-card-alt) text-(--color-text-primary)"
+              : "text-(--color-text-muted) hover:text-(--color-text-primary)",
+          ]}
+        >
+          {range}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="rounded-lg border border-(--color-border) bg-(--color-card) overflow-hidden">
+    <div class="flex items-center justify-between px-4 pt-3 pb-1 gap-2">
+      <span id="chart-pair-label" class="text-xs font-semibold text-(--color-text-muted) uppercase tracking-widest">{from}/{to}</span>
+      <span id="chart-price-label" class="text-xs text-(--color-text-muted) text-right">
+        {stats.last.toFixed(4)} · {endDate}
+      </span>
+    </div>
+    <div id="chart-container" class="w-full h-48 sm:h-56 md:h-64"></div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+---
+import type { Tab } from "../../lib/type"
+import Badge from "./Badge.astro"
+
+interface Props {
+  tabs: Tab[]
+  activeIndex: number
+}
+
+const { tabs, activeIndex } = Astro.props
+---
+
+<ul class="flex items-center gap-4 sm:gap-6 border-b border-(--color-border) overflow-x-auto whitespace-nowrap scrollbar-none">
+  {tabs.map((tab, index) => (
+    <li
+      data-tab={index}
+      class:list={[
+        "tab-btn flex items-center gap-2 pb-[11px] cursor-pointer transition-colors shrink-0",
+        index === activeIndex
+          ? "border-b-2 border-(--color-accent-lime)"
+          : "hover:border-b-2 hover:border-(--color-border-hover)",
+      ]}
+    >
+      <span
+        class:list={[
+          "text-xs font-semibold tracking-widest uppercase",
+          index === activeIndex ? "text-(--color-text-primary)" : "text-(--color-text-muted)",
+        ]}
+      >
+        {tab.title}
+      </span>
+      {tab.amount !== null && <Badge id={`tab-count-${index}`} count={tab.amount} />}
+    </li>
+  ))}
+</ul>

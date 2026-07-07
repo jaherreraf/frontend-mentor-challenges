@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-jetbrains-mono: "jetbrains-mono", sans-serif;
+
+  /* ─── Fondos ─────────────────────────────────────── */
+  --color-main:      #0b0c0e; /* Fondo principal de la app */
+  --color-card:      #16181d; /* Contenedores, tarjetas, panel de historial */
+  --color-card-alt:  #1c1f25; /* Bloque SEND (ligeramente más claro que card) */
+  --color-input:     #22252a; /* Inputs, dropdowns, estado hover sutil */
+
+  /* ─── Bordes ─────────────────────────────────────── */
+  --color-border:       #2a2e36; /* Borde por defecto entre secciones */
+  --color-border-hover: #353b45; /* Borde en hover / focus */
+
+  /* ─── Acento lime ────────────────────────────────── */
+  --color-accent-lime:  #d2f53c; /* Logo, botón FAVORITED, tab underline */
+  --color-chart-line:   #b4df24; /* Línea del área chart (tono más apagado) */
+
+  /* ─── Texto ──────────────────────────────────────── */
+  --color-text-primary: #f0f2f5; /* Valores principales (1,000 / 853.02) */
+  --color-text-muted:   #8b9099; /* Labels: SEND, RECEIVE, OPEN, LAST... */
+  --color-text-dim:     #5a6070; /* Texto terciario, ticks del gráfico */
+
+  /* ─── Mercado / estados financieros ─────────────── */
+  --color-market-up:      #10b981; /* Verde: precios al alza */
+  --color-market-down:    #ef4444; /* Rojo: precios a la baja */
+  --color-market-up-bg:   #152d22; /* Fondo del badge positivo */
+  --color-market-down-bg: #2d1515; /* Fondo del badge negativo */
+
+  /* ─── Ticker bar ─────────────────────────────────── */
+  --color-ticker:  #111317; /* Barra scrollable de pares de divisas */
+  --color-live-bg: #1e2126; /* Fondo del pill "● LIVE MARKETS" */
+
+  /* ─── Misc UI ────────────────────────────────────── */
+  --color-swap-bg: #2a2e36; /* Botón de intercambio (⇄) */
+}
+
+@font-face {
+  font-family: "jetbrains-mono";
+  src: url("/fonts/jetbrains-mono-variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar { display: none; }

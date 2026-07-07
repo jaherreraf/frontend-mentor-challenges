@@ -1,0 +1,17 @@
+---
+import { getFlagUrl } from "../../lib/api/frankfurter"
+
+interface Props {
+  code: string
+  size?: number
+}
+
+const { code, size = 5 } = Astro.props
+---
+
+<img
+  src={getFlagUrl(code)}
+  alt={code}
+  class={`size-${size} rounded-full object-cover shrink-0`}
+  loading="lazy"
+/>

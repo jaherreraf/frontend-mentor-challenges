@@ -1,0 +1,17 @@
+---
+interface Props {
+  isUp: boolean
+  changePercent: string
+}
+
+const { isUp, changePercent } = Astro.props
+---
+
+<span
+  class:list={[
+    "text-[11px] sm:text-xs font-medium",
+    isUp ? "text-(--color-market-up)" : "text-(--color-market-down)",
+  ]}
+>
+  {isUp ? "▲" : "▼"} {changePercent}
+</span>

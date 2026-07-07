@@ -1,0 +1,51 @@
+---
+import { getFlagUrl } from "../../lib/api/frankfurter"
+import CurrencyPickerRow from "./CurrencyPickerRow.astro"
+
+interface Props {
+  panel: "send" | "receive"
+  currencies: [string, string][]
+  selected: string
+}
+
+const { panel, currencies, selected } = Astro.props
+const panelLower = panel.toLowerCase()
+const btnId = `${panelLower}-currency-btn`
+const dropdownId = `${panelLower}-dropdown`
+const codeElId = `${panelLower}-code`
+const flagElId = `${panelLower}-flag`
+const chevronId = `${panelLower}-chevron`
+const optionsId = `${panelLower}-options`
+---
+
+<div class="relative shrink-0">
+  <button
+    id={btnId}
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    class="flex items-center gap-2 bg-(--color-input) hover:bg-(--color-swap-bg) transition-colors rounded-md px-3 py-1.5 shrink-0"
+  >
+    <img id={flagElId} src={getFlagUrl(selected)} alt={selected} class="size-5 rounded-full object-cover shrink-0" />
+    <span id={codeElId} class="text-sm font-semibold text-(--color-text-primary)">{selected}</span>
+    <img src="/assets/icons/icon-chevron-down.svg" alt="" id={chevronId} class="size-3 transition-transform duration-200" />
+  </button>
+  <div
+    id={dropdownId}
+    role="listbox"
+    class="hidden absolute z-50 top-full mt-1 w-60 max-w-[80vw] max-h-60 overflow-y-auto bg-(--color-card) border border-(--color-border) rounded-lg shadow-2xl"
+  >
+    <div class="sticky top-0 bg-(--color-card) px-3 pt-3 pb-2 border-b border-(--color-border)">
+      <input
+        type="text"
+        data-search={panelLower}
+        placeholder="Search currency..."
+        class="w-full bg-(--color-card-alt) border border-(--color-border) rounded-md px-3 py-1.5 text-xs text-(--color-text-primary) placeholder:text-(--color-text-muted) outline-none focus:border-(--color-accent-lime) transition-colors"
+      />
+    </div>
+    <div id={optionsId} class="py-1">
+      {currencies.map(([code, name]) => (
+        <CurrencyPickerRow {code} {name} panel={panelLower} />
+      ))}
+    </div>
+  </div>
+</div>

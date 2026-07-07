@@ -1,0 +1,24 @@
+---
+import { getFlagUrl } from "../../lib/api/frankfurter"
+import CurrencyFlag from "./CurrencyFlag.astro"
+
+interface Props {
+  code: string
+  name: string
+  panel: string
+}
+
+const { code, name, panel } = Astro.props
+---
+
+<button
+  role="option"
+  data-panel={panel}
+  data-code={code}
+  data-flag={getFlagUrl(code)}
+  class="currency-option w-full flex items-center gap-3 px-4 py-2 text-left hover:bg-(--color-card-alt) transition-colors"
+>
+  <CurrencyFlag {code} />
+  <span class="text-xs font-semibold text-(--color-text-primary) w-10 shrink-0">{code}</span>
+  <span class="text-xs text-(--color-text-muted) truncate">{name}</span>
+</button>
