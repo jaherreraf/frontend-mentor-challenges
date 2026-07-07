@@ -86,8 +86,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/jaherreraf/frontend-mentor-challenges/tree/main/exchange)
+- Live Site URL: [Add live site URL here](https://exchangebyjaherreraf-frontendmentor.netlify.app)
 
 ## My process
 
@@ -153,8 +153,8 @@ Describe how you used AI tools (if any) during this project. This helps demonstr
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Website - [Add your name here](https://www.jaherreraf.dev)
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/jaherreraf)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
 **Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
