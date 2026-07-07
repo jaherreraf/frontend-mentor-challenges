@@ -43,7 +43,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Links
 
 - Solution URL: https://github.com/jaherreraf/frontend-mentor-challenges/tree/main/project-tracking-intro-component-master
-- Live Site URL: 
+- Live Site URL: https://jaherreraf-project-tracking.netlify.app
 
 ## My process
 

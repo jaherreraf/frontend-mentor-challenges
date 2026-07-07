@@ -22,14 +22,14 @@ Below is a list of all projects currently held in this repository. You can click
 | **interactive-comments-section-main** | Not deployed | HTML / CSS / JS |
 | **interactive-rating-component-main** | [Live Demo](https://jaherreraf-interactive-rating.netlify.app/) | HTML / CSS / JS |
 | **manage-landing-page-master** | [Live Demo](https://jaherreraf-manage-landing-page-master.netlify.app/) | HTML / CSS / JS |
-| **multi-step-form-main** | Not deployed | Astro / Tailwind CSS / TypeScript |
+| **multi-step-form-main** | [Live Demo](https://multi-step-form-jaherreraf.netlify.app) | Astro / Tailwind CSS / TypeScript |
 | **newsletter-sign-up-with-success-message-main** | [Live Demo](https://jaherreraf-newsletter-signup-success.netlify.app/) | Astro / Tailwind CSS |
 | **notifications-page-main** | [Live Demo](https://jaherreraf-notifications-page-main.netlify.app/) | HTML / CSS / JS |
 | **order-summary-component-main** | [Live Demo](https://jaherreraf-order-summary-component.netlify.app/) | HTML / CSS |
 | **profile-card-component-main** | [Live Demo](https://jaherreraf-profile-card-component-ma.netlify.app/) | HTML / CSS |
-| **project-tracking-intro-component-master** | Not deployed | Astro / Tailwind CSS / TypeScript |
+| **project-tracking-intro-component-master** | [Live Demo](https://jaherreraf-project-tracking.netlify.app) | Astro / Tailwind CSS / TypeScript |
 | **qr-code-component-main** | [Live Demo](https://jaherreraf-qr-code-component.netlify.app/) | HTML / CSS |
-| **sunnyside-agency-landing-page-main** | Not deployed | React / Vite / Tailwind CSS |
+| **sunnyside-agency-landing-page-main** | [Live Demo](https://jaherreraf-sunnyside-agency-landing.netlify.app) | React / Vite / Tailwind CSS |
 | **exchange** | [Live Demo](https://exchangebyjaherreraf-frontendmentor.netlify.app) | Astro / Tailwind CSS / TypeScript |
 
 *(**Note:** Projects marked as "Not deployed" still need a live site URL to be configured).*
