@@ -12,36 +12,45 @@ This repository contains multiple micro-projects from Front-End Mentor, each enc
 
 Below is a list of all projects currently held in this repository. You can click on the respective link to view the source code and the live deployed demo (where applicable).
 
-| Project Name | Live Demo Link |
-| :--- | :--- |
-| **blogr-landing-page-main** | [Add Live Demo Link Here] |
-| **bookmark-landing-page-master** | [Add Live Demo Link Here] |
-| **browser-extensions-manager-ui-main** | [Add Live Demo Link Here] |
-| **calculator-app-main** | [Add Live Demo Link Here] |
-| **interactive-comments-section-main** | [Add Live Demo Link Here] |
-| **interactive-rating-component-main** | [Add Live Demo Link Here] |
-| **manage-landing-page-master** | [Add Live Demo Link Here] |
-| **newsletter-sign-up-with-success-message** | [Add Live Demo Link Here] |
-| **notifications-page-main** | [Add Live Demo Link Here] |
-| **order-summary-component-main** | [Add Live Demo Link Here] |
-| **profile-card-component-main** | [Add Live Demo Link Here] |
-| **project-tracking-intro-component-master** | [Add Live Demo Link Here] |
-| **sunnyside-agency-landing-page-main** | [Add Live Demo Link Here] |
+| Project Name | Live Demo | Technologies |
+| :--- | :--- | :--- |
+| **blogr-landing-page-main** | [Live Demo](https://jaherreraf-blogr-landing-page.netlify.app/) | HTML / CSS / JS |
+| **bookmark-landing-page-master** | Not deployed | HTML / CSS / JS |
+| **browser-extensions-manager-ui-main** | [Live Demo](https://jaherreraf-browser-extensions-manager.netlify.app/) | HTML / CSS / JS |
+| **calculator-app-main** | [Live Demo](https://jaherreraf-calculator-app-main.netlify.app) | HTML / CSS / JS |
+| **expenses-chart-component-main** | [Live Demo](https://jaherreraf-expenses-chart.netlify.app/) | HTML / CSS / JS |
+| **interactive-comments-section-main** | Not deployed | HTML / CSS / JS |
+| **interactive-rating-component-main** | [Live Demo](https://jaherreraf-interactive-rating.netlify.app/) | HTML / CSS / JS |
+| **manage-landing-page-master** | [Live Demo](https://jaherreraf-manage-landing-page-master.netlify.app/) | HTML / CSS / JS |
+| **multi-step-form-main** | Not deployed | Astro / Tailwind CSS / TypeScript |
+| **newsletter-sign-up-with-success-message-main** | [Live Demo](https://jaherreraf-newsletter-signup-success.netlify.app/) | Astro / Tailwind CSS |
+| **notifications-page-main** | [Live Demo](https://jaherreraf-notifications-page-main.netlify.app/) | HTML / CSS / JS |
+| **order-summary-component-main** | [Live Demo](https://jaherreraf-order-summary-component.netlify.app/) | HTML / CSS |
+| **profile-card-component-main** | [Live Demo](https://jaherreraf-profile-card-component-ma.netlify.app/) | HTML / CSS |
+| **project-tracking-intro-component-master** | Not deployed | Astro / Tailwind CSS / TypeScript |
+| **qr-code-component-main** | [Live Demo](https://jaherreraf-qr-code-component.netlify.app/) | HTML / CSS |
+| **sunnyside-agency-landing-page-main** | Not deployed | React / Vite / Tailwind CSS |
+| **exchange** | [Live Demo](https://exchangebyjaherreraf-frontendmentor.netlify.app) | Astro / Tailwind CSS / TypeScript |
 
-*(**Note:** Please replace `[Add Live Demo Link Here]` with the actual URL where each project is deployed, e.g., Netlify or Vercel).*
+*(**Note:** Projects marked as "Not deployed" still need a live site URL to be configured).*
 
 ---
 
 ## 🛠️ Technologies Utilized
 
-Most of these challenges were built primarily using the following web technologies:
+These challenges were built using a variety of modern web technologies, including:
 
 * **HTML5** (Semantic Markup)
 * **CSS3** (Including modern layouts like Flexbox and/or Grid)
 * **JavaScript** (For required interactivity)
+* **TypeScript**
+* **React**
+* **Astro**
+* **Vite**
+* **Tailwind CSS**
 * **Responsive Design** (Mobile-First Workflow)
 
-Any additional or specific technologies used for a particular project will be noted in that project's individual `README.md` file.
+Any additional or specific technologies used for a particular project are noted in that project's individual `README.md` file.
 
 ---
 
