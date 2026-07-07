@@ -33,12 +33,14 @@ const fxData = JSON.stringify({ chartData, endDate, from: FROM, to: TO, currenci
     </p>
   </header>
 
-  <MarketTicker pairs={tickerPairs} />
+  <section aria-label="Live market rates">
+    <MarketTicker pairs={tickerPairs} />
+  </section>
 
   <main class="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-4 py-6 sm:py-10">
-    <h2 class="text-xs font-semibold tracking-widest text-(--color-text-muted) uppercase mb-4 sm:mb-6 px-1">
+    <h1 class="text-xs font-semibold tracking-widest text-(--color-text-muted) uppercase mb-4 sm:mb-6 px-1">
       Check the rate
-    </h2>
+    </h1>
 
     <ConverterCard {stats} from={FROM} to={TO} {currencyList} />
 
@@ -52,7 +54,7 @@ const fxData = JSON.stringify({ chartData, endDate, from: FROM, to: TO, currenci
     </section>
   </main>
 
-  <div class="fixed bottom-0 left-0 right-0 z-40 group cursor-default" style="height: 0">
+  <footer class="fixed bottom-0 left-0 right-0 z-40 group cursor-default" style="height: 0">
     <div class="absolute bottom-0 left-0 right-0 flex items-start justify-center" style="height: 48px; padding-top: 8px">
       <p
         class="text-[10px] text-(--color-text-muted) text-center
@@ -67,10 +69,9 @@ const fxData = JSON.stringify({ chartData, endDate, from: FROM, to: TO, currenci
            class="underline hover:text-(--color-accent-lime) transition-colors">Jaherreraf</a>
       </p>
     </div>
-  </div>
+  </footer>
+  <div id="fx-data" data-fx={fxData} hidden></div>
 </Layout>
-
-<div id="fx-data" data-fx={fxData} hidden></div>
 
 <script>
   import { initConverter, getPair } from "../scripts/converter"

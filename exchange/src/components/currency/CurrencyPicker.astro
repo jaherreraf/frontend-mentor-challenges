@@ -25,7 +25,7 @@ const optionsId = `${panelLower}-options`
     aria-expanded="false"
     class="flex items-center gap-2 bg-(--color-input) hover:bg-(--color-swap-bg) transition-colors rounded-md px-3 py-1.5 shrink-0"
   >
-    <img id={flagElId} src={getFlagUrl(selected)} alt={selected} class="size-5 rounded-full object-cover shrink-0" />
+    <img id={flagElId} src={getFlagUrl(selected)} alt="" class="size-5 rounded-full object-cover shrink-0" />
     <span id={codeElId} class="text-sm font-semibold text-(--color-text-primary)">{selected}</span>
     <img src="/assets/icons/icon-chevron-down.svg" alt="" id={chevronId} class="size-3 transition-transform duration-200" />
   </button>
