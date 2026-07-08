@@ -15,7 +15,7 @@ Below is a list of all projects currently held in this repository. You can click
 | Project Name | Live Demo | Technologies |
 | :--- | :--- | :--- |
 | **blogr-landing-page-main** | [Live Demo](https://jaherreraf-blogr-landing-page.netlify.app/) | HTML / CSS / JS |
-| **bookmark-landing-page-master** | Not deployed | HTML / CSS / JS |
+| **bookmark-landing-page-master** | [Live Demo](https://bookmark-landing-jaherreraf-frontend.netlify.app)| HTML / CSS / JS |
 | **browser-extensions-manager-ui-main** | [Live Demo](https://jaherreraf-browser-extensions-manager.netlify.app/) | HTML / CSS / JS |
 | **calculator-app-main** | [Live Demo](https://jaherreraf-calculator-app-main.netlify.app) | HTML / CSS / JS |
 | **expenses-chart-component-main** | [Live Demo](https://jaherreraf-expenses-chart.netlify.app/) | HTML / CSS / JS |
