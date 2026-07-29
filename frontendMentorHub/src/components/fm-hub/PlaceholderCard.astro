@@ -1,0 +1,48 @@
+---
+interface Props {
+    column?: string;
+    rowSpan?: number;
+}
+const { column = "auto", rowSpan = 1 } = Astro.props;
+---
+
+<div
+    class="placeholder-card rounded-3xl border border-dashed border-white/10 flex flex-col items-center justify-center gap-3 text-center p-6"
+    style={`--ph-col: ${column}; --ph-row-span: ${rowSpan};`}
+>
+    <div
+        class="w-10 h-10 rounded-full border border-dashed border-violet-400/50 flex items-center justify-center text-violet-400 text-xl"
+    >
+        +
+    </div>
+    <p class="font-semibold text-gray-300">Next Project</p>
+    <p class="text-sm text-gray-500">Coming soon...</p>
+</div>
+<style>
+    @keyframes placeholder-pulse {
+        0%,
+        100% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 0.9;
+        }
+    }
+    .placeholder-card {
+        background: rgba(255, 255, 255, 0.015);
+        animation: placeholder-pulse 3s ease-in-out infinite;
+        min-height: 140px;
+    }
+    @media (min-width: 768px) {
+        .placeholder-card {
+            min-height: 180px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .placeholder-card {
+            grid-column: var(--ph-col);
+            grid-row: span var(--ph-row-span);
+            min-height: unset;
+        }
+    }
+</style>

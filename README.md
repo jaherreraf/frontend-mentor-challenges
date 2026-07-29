@@ -43,6 +43,15 @@ Below is a list of all projects currently held in this repository. You can click
 | **Conference Ticket Generator** | [Live Demo](https://jaherreraf-conference-ticket-main.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/conference-ticket-generator) |
 | **E-commerce Product Page** | [Live Demo](https://ecommerce-product-page-jaherreraf.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/ecommerce-product-page-main) |
 | **Chat App CSS Illustration** | [Live Demo](https://golden-longma-e4fa07.netlify.app) | HTML / CSS | [Source Code](https://github.com/jaherreraf/chat-app-css-illustration-master) |
+| **Intro Section with Dropdown Navigation** | [Live Demo](https://intro-section-jaherreraf-frontend.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/intro-section-with-dropdown-navigation-main) |
+| **Age Calculator App** | [Live Demo](https://age-calculator-app-main-jaherreraf.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/age-calculator-app-main) |
+| **Blog Preview Card** | [Live Demo](https://frontendmentor-jaherreraf-blogcard.netlify.app) | HTML / CSS | [Source Code](https://gitlab.com/jaherreraf/blog-preview-card) |
+| **Interactive Card Details Form** | [Live Demo](https://frontend-jaherreraf-interactive-card.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/interactive-card-details-form-main) |
+| **Space Tourism Website** | [Live Demo](https://frontendmentor-jaherreraf-space.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/space-tourism-website-main) |
+| **Results Summary** | [Live Demo](https://frontendmentor-jaherreraf-summary.netlify.app) | HTML / CSS | [Source Code](https://gitlab.com/jaherreraf/results-summary) |
+| **News Homepage** | [Live Demo](https://frontendmentor-newhomepage-jaherreraf.netlify.app) | HTML / CSS / JS | [Source Code](https://gitlab.com/jaherreraf/news-homepage-main) |
+| **NFT Preview Card Component** | [Live Demo](https://frontendmentor-jaherreraf-ntfcard.netlify.app) | HTML / CSS | [Source Code](https://gitlab.com/jaherreraf/nft-preview-card-component-main) |
+| **Social Links Profile** | [Live Demo](https://www.frontendmentor.io/solutions/social-link-profile-main-jaherreraf-sYlphQ6nvA) | HTML / CSS | [Source Code](https://gitlab.com/jaherreraf/social-links-profile-main) |
 
 *(**Note:** Projects marked as "Not deployed" still need a live site URL to be configured).*
 

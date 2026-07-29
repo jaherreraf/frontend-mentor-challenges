@@ -1,0 +1,36 @@
+---
+import { FM_PROFILE_URL } from "@/data/fm-filters";
+---
+
+<div class="space-y-3">
+    <div class="flex items-center gap-3">
+        <div
+            class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700"
+        >
+        </div>
+        <span
+            class="text-sm font-semibold text-violet-400 tracking-widest uppercase"
+            >Frontend Mentor</span
+        >
+    </div>
+    <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight metallic-text"
+    >
+        Component Hub
+    </h1>
+    <p class="text-gray-400 max-w-xl text-base md:text-lg">
+        A dashboard showcasing solutions across the multiverse of frontend
+        challenges.
+    </p>
+
+    <a
+        href={FM_PROFILE_URL}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-sm font-semibold
+    text-violet-400 hover:text-violet-300 transition-colors group"
+    >
+        View full profile on Frontend Mentor
+        <span class="transition-transform group-hover:translate-x-1">→</span>
+    </a>
+</div>

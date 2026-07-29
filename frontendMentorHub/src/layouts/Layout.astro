@@ -1,0 +1,97 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+import "@/styles/global.css";
+---
+
+<html lang="en" class="bg-[#0B0B0E] text-white scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <style is:global>
+            body {
+                font-family: "Syne", sans-serif;
+                background-color: #0b0b0e;
+                background-image: radial-gradient(
+                    circle at 50% 0%,
+                    rgba(139, 92, 246, 0.05) 0%,
+                    transparent 50%
+                );
+            }
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            @keyframes glowPulse {
+                0% {
+                    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+                }
+                50% {
+                    box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+                }
+                100% {
+                    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+                }
+            }
+            .animated-border {
+                background: linear-gradient(
+                    135deg,
+                    rgba(139, 92, 246, 0.4),
+                    rgba(168, 85, 247, 0.1),
+                    rgba(124, 58, 237, 0.3)
+                );
+                background-size: 400% 400%;
+                animation: gradientShift 4s ease infinite;
+                padding: 1px;
+            }
+            .animated-border > * {
+                background: #141419;
+            }
+            .glow-on-hover:hover {
+                animation: glowPulse 2s infinite;
+                border-color: rgba(139, 92, 246, 0.5);
+            }
+            .bento-card {
+                background: #141419;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+            }
+            .bento-card:hover {
+                border-color: rgba(139, 92, 246, 0.2);
+                background: #18181d;
+            }
+            .filter-btn.active {
+                background: #8b5cf6;
+                color: white;
+                border-color: #8b5cf6;
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            }
+            .metallic-text {
+                background: linear-gradient(135deg, #a855f7, #8b5cf6, #c084fc);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen p-6 md:p-8 lg:p-12">
+        <slot />
+    </body>
+</html>

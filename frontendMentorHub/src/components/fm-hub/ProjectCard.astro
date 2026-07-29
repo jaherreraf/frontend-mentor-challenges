@@ -1,0 +1,124 @@
+---
+import type { Project } from "@/types/project.types";
+import {
+    difficultyColor,
+    levelIndex,
+    isTallSlot,
+    isWideSlot,
+    patternPos,
+} from "@/lib/bento-grid";
+interface Props {
+    project: Project;
+    index: number;
+}
+const { project, index } = Astro.props;
+const pos = patternPos(index);
+const tall = isTallSlot(pos);
+const wide = isWideSlot(pos);
+---
+
+<div
+    class="animated-border rounded-3xl glow-on-hover project-card bento-item"
+    data-level={project.difficultyLevel}
+    data-tools={project.techStack.join(",")}
+    data-featured={project.isFeatured ? "true" : "false"}
+    data-title={project.title.toLowerCase()}
+>
+    <div
+        class={`bento-card rounded-3xl overflow-hidden flex h-full ${wide ? "flex-col lg:flex-row" : "flex-col"}`}
+    >
+        <div
+            class={`relative overflow-hidden min-h-[140px] ${wide ? "w-full lg:w-1/2 h-56 lg:h-auto" : tall ? "h-56 lg:flex-1 lg:h-auto" : "h-44"}`}
+        >
+            <img
+                src={project.image}
+                alt={project.title}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                loading="lazy"
+            />
+            <div class="absolute top-3 left-3">
+                <span
+                    class={`text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10 ${difficultyColor(project.difficultyLevel)}`}
+                >
+                    {project.difficultyLevel}
+                </span>
+            </div>
+            <div class="absolute bottom-3 left-3 flex gap-1">
+                {
+                    Array.from({ length: 5 }).map((_, idx) => (
+                        <span
+                            class={`h-1 w-4 rounded-full ${idx < levelIndex(project.difficultyLevel) ? "bg-violet-400" : "bg-white/15"}`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+        <div
+            class={`flex flex-col min-w-0 overflow-hidden ${wide ? "w-full lg:w-1/2 p-6 md:p-8" : "p-5 flex-grow"}`}
+        >
+            <div class="flex-1 min-h-0 overflow-hidden space-y-1.5 min-w-0">
+                {
+                    project.isFeatured && (
+                        <span class="text-violet-400 text-xs font-semibold uppercase tracking-wider">
+                            ★ Featured
+                        </span>
+                    )
+                }
+                <h3
+                    class={`font-bold leading-tight break-words ${wide ? "text-2xl md:text-3xl line-clamp-2" : "text-lg line-clamp-1"}`}
+                    title={project.title}
+                >
+                    {project.title}
+                </h3>
+                <p
+                    class={`text-gray-400 ${wide ? "text-sm line-clamp-2" : "text-xs line-clamp-1"}`}
+                >
+                    {project.description}
+                </p>
+                <div
+                    class="flex flex-wrap gap-1.5 overflow-hidden max-h-[26px]"
+                >
+                    {
+                        project.techStack
+                            .slice(0, wide ? 6 : 3)
+                            .map((tech) => (
+                                <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-white/5 text-gray-300 border border-white/5">
+                                    {tech}
+                                </span>
+                            ))
+                    }
+                    {
+                        project.techStack.length > (wide ? 6 : 3) && (
+                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-white/5 text-gray-400">
+                                +{project.techStack.length - (wide ? 6 : 3)}
+                            </span>
+                        )
+                    }
+                </div>
+            </div>
+            <div
+                class="flex items-center gap-4 mt-3 pt-3 border-t border-white/5 flex-shrink-0"
+            >
+                <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-xs font-semibold text-violet-400
+                hover:text-violet-300 transition-colors"
+                >
+                    Demo →
+                </a>
+
+                <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-xs font-semibold text-gray-400
+                hover:text-white transition-colors"
+                >
+                    Code →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
