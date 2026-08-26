@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Colores Neutrales --- */
+  --color-neutral-900: hsl(33, 15%, 15%);
+  --color-neutral-800: hsl(33, 22%, 20%);
+  --color-neutral-700: hsl(32, 20%, 29%);
+  --color-neutral-600: hsl(33, 17%, 41%);
+  --color-neutral-400: hsl(36, 22%, 86%);
+  --color-neutral-200: hsl(30, 24%, 93%);
+  --color-neutral-100: hsl(35, 60%, 96%);
+  --color-neutral-50: hsl(40, 60%, 98%);
+  --color-neutral-0: hsl(0, 0%, 100%);
+
+  /* --- Colores Sun --- */
+  --color-sun-500: hsl(42, 83%, 58%);
+  --color-sun-300: hsl(44, 84%, 75%);
+  --color-sun-200: hsl(45, 100%, 74%);
+  --color-sun-50: hsl(41, 100%, 93%);
+
+  /* --- Colores Terracotta --- */
+  --color-terracotta-700: hsl(15, 69%, 37%);
+  --color-terracotta-600: hsl(15, 74%, 41%);
+  --color-terracotta-500: hsl(18, 62%, 47%);
+  --color-terracotta-400: hsl(22, 72%, 56%);
+
+  /* --- Otros Colores --- */
+  --color-blue-500: hsl(230, 49%, 56%);
+  --color-rose-500: hsl(340, 48%, 52%);
+
+  /* --- Tipografías (Familias de fuentes) --- */
+  --font-fraunces: "Fraunces", serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-dm-mono: "DM Mono", monospace;
+}
